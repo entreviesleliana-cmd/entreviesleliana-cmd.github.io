@@ -4,8 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Entrevies l'Eliana · Asociación vecinal</title>
-<meta name="description" content="Asociación Vecinal Entrevies de l'Eliana: por la reapertura del paso a nivel peatonal de la estación y por barrios conectados, seguros y accesibles en l'Estació, Montepilar, Montealegre, Pinaeta del Sel y alrededores.">
+<meta name="description" content="Asociación Vecinal Entrevies de l'Eliana: por la reapertura del paso a nivel peatonal de la estación y por barrios conectados, seguros y accesibles en l'Estació, Montepilar, Montealegre, Pinaeta del Cel y alrededores.">
 <link rel="icon" href="img/logo_entrevies.jpg">
+<link rel="canonical" href="https://entreviesleliana-cmd.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Entrevies l'Eliana">
+<meta property="og:title" content="Associació Veïnal Entrevies de l'Eliana">
+<meta property="og:description" content="Por la reapertura del paso a nivel de la estación y por barrios conectados, seguros y accesibles: l'Estació, Montepilar, Montealegre, Pinaeta del Cel y alrededores.">
+<meta property="og:image" content="https://entreviesleliana-cmd.github.io/img/logo_entrevies.jpg">
+<meta property="og:url" content="https://entreviesleliana-cmd.github.io/">
+<meta property="og:locale" content="es_ES">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bitter:wght@600;700;800&display=swap" rel="stylesheet">
@@ -414,7 +422,7 @@
       <h2>Barrios con los mismos servicios que el resto</h2>
       <p class="intro">Nuestras urbanizaciones no tienen ni un parque ni una zona ajardinada donde descansar, reunirse o pasear. Pedimos los mismos espacios y servicios que tiene el resto del pueblo.</p>
       <ul class="barrios" aria-label="Zonas">
-        <li>l'Estació</li><li>Montepilar</li><li>Montealegre</li><li>Pinaeta del Sel</li><li>Y otras urbanizaciones</li>
+        <li>l'Estació</li><li>Montepilar</li><li>Montealegre</li><li>Pinaeta del Cel</li><li>Y otras urbanizaciones</li>
       </ul>
 
       <div class="rejilla">
@@ -582,18 +590,27 @@
     <div class="contenedor dos-col">
       <div>
         <h2>¿Necesitas contarnos algo?</h2>
-        <p class="intro"><strong>Este es el lugar.</strong> Cuéntanos qué necesitas tu calle o tu barrio, escríbenos tus propuestas, propón una actividad o pregúntanos lo que quieras. Leemos todos los mensajes y te respondemos.</p>
+        <p class="intro"><strong>Este es el lugar.</strong> Cuéntanos qué necesita tu calle o tu barrio, escríbenos tus propuestas, propón una actividad o pregúntanos lo que quieras. Leemos todos los mensajes y te respondemos.</p>
         <div class="tarjeta naranja" style="margin-top:24px">
           <h3>Para que podamos ayudarte</h3>
           <ul>
             <li>Indica la calle o el lugar exacto.</li>
             <li>Si es un problema, di cuándo ocurre y a quién afecta.</li>
-            <li>Puedes adjuntar fotos en el correo que se abrirá.</li>
+            <li>¿Tienes fotos? Te llegará un correo de confirmación: respóndelo y adjúntalas.</li>
           </ul>
         </div>
         <p style="margin-top:20px">¿Necesitas la información en lectura fácil, en valenciano o en otro formato accesible? Pídenoslo.</p>
       </div>
-      <form class="formulario" id="form-contacto" novalidate style="border:1px solid var(--borde)">
+      <div>
+      <div class="formulario" id="contacto-directo" style="border:1px solid var(--borde)">
+        <h3 style="margin:0">Escríbenos</h3>
+        <p style="margin:0">Elige si es una <strong>reivindicación, una propuesta, una actividad o una pregunta</strong>, y cuéntanoslo con tus palabras. Funciona desde el móvil y desde cualquier ordenador.</p>
+        <a class="boton principal" id="enlace-contacto" href="#" target="_blank" rel="noopener" style="justify-self:start">Escribir mi mensaje</a>
+        <p class="aviso">Recibirás un correo confirmando que nos ha llegado.</p>
+      </div>
+      <details id="contacto-correo" style="margin-top:16px">
+        <summary style="cursor:pointer;font-weight:700">¿Prefieres usar tu propio programa de correo?</summary>
+      <form class="formulario" id="form-contacto" novalidate style="border:1px solid var(--borde);margin-top:12px">
         <fieldset class="campo">
           <legend>¿Qué quieres enviarnos?</legend>
           <div class="opciones">
@@ -607,7 +624,7 @@
           <div class="campo"><label for="c-nombre">Nombre</label><input type="text" id="c-nombre" name="nombre" autocomplete="name" required></div>
           <div class="campo"><label for="c-barrio">Barrio o urbanización <span class="ayuda">(opcional)</span></label>
             <select id="c-barrio" name="barrio">
-              <option value="">—</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Sel</option><option>Otra zona de l'Eliana</option>
+              <option value="">—</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Cel</option><option>Otra zona de l'Eliana</option>
             </select>
           </div>
         </div>
@@ -617,8 +634,10 @@
         <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
         <button type="submit">Enviar mensaje</button>
         <p class="estado" role="status" aria-live="polite"></p>
-        <p class="aviso">Al pulsar «Enviar» se abrirá tu programa de correo con el mensaje ya escrito; solo tienes que enviarlo. Así te respondemos directamente a ti.</p>
+        <p class="aviso">Al pulsar «Enviar» se abrirá tu programa de correo con el mensaje ya escrito; solo tienes que enviarlo. Si no se abre ninguno, escríbenos a entreviesleliana@gmail.com.</p>
       </form>
+      </details>
+      </div>
     </div>
   </section>
 
@@ -651,7 +670,7 @@
         </div>
         <div class="campo"><label for="s-barrio">Barrio o urbanización</label>
           <select id="s-barrio" name="barrio" required>
-            <option value="">Elige una opción</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Sel</option><option>Otra zona de l'Eliana</option><option>No vivo en l'Eliana</option>
+            <option value="">Elige una opción</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Cel</option><option>Otra zona de l'Eliana</option><option>No vivo en l'Eliana</option>
           </select>
         </div>
         <div class="campo"><label for="s-com">¿Quieres comentarnos algo? <span class="ayuda">(opcional)</span></label><textarea id="s-com" name="comentario" style="min-height:90px"></textarea></div>
@@ -724,6 +743,19 @@
     } else {
       document.getElementById('alta-directa').style.display = 'none';
       var d = document.getElementById('alta-correo');
+      d.open = true; d.style.marginTop = '0';
+      d.querySelector('summary').style.display = 'none';
+    }
+  })();
+
+  // «Cuéntanos»: igual que el alta, el formulario de Google es la vía principal si hay enlace
+  (function () {
+    var url = window.ENLACE_FORMULARIO_CONTACTO || '';
+    if (/^https:\/\/(forms\.gle|docs\.google\.com)\//.test(url)) {
+      document.getElementById('enlace-contacto').href = url;
+    } else {
+      document.getElementById('contacto-directo').style.display = 'none';
+      var d = document.getElementById('contacto-correo');
       d.open = true; d.style.marginTop = '0';
       d.querySelector('summary').style.display = 'none';
     }

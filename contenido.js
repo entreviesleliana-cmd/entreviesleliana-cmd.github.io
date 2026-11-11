@@ -23,6 +23,11 @@ window.REDES = {
    Mientras esté vacío, la web ofrece el alta por correo. Ejemplo: 'https://forms.gle/AbCdEf123' */
 window.ENLACE_FORMULARIO_ALTA = 'https://forms.gle/yjjYoyd16aUYLde99';
 
+/* ---------- FORMULARIO «CUÉNTANOS» ----------
+   Enlace del formulario de Google que crea la automatización (crearFormularioContacto).
+   Mientras esté vacío, la web usa el formulario que abre el programa de correo. */
+window.ENLACE_FORMULARIO_CONTACTO = 'https://forms.gle/8DyBwQnaYSF2xMUE6';
+
 /* ---------- NOTICIAS DEL PUEBLO ----------
    categoria: 'Asociación' (naranja) o cualquier otra palabra, p. ej. 'Pueblo', 'Obras', 'Pleno' (verde)
    fuente: OBLIGATORIA. Una noticia sin fuente NO se publica (la web la oculta sola).
