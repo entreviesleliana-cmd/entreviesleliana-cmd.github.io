@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrevies en lectura fácil</title>
+<meta name="description" content="La web de la Asociación Vecinal Entrevies de l'Eliana explicada en lectura fácil, con pictogramas. En valenciano y castellano.">
+<link rel="icon" href="img/logo_entrevies_300.png">
+<link rel="canonical" href="https://entreviesleliana-cmd.github.io/lectura-facil.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Pautas de lectura fácil: letra grande y clara, texto alineado a la izquierda,
+     una idea por línea, mucho espacio y un pictograma junto a cada idea. */
+  :root { --azul:#1F4E9E; --azul-osc:#163A78; --verde-osc:#0E4D22; --naranja-osc:#A84A14; --texto:#111; --fondo:#FFFFFF; --suave:#F3F5F9; }
+  * { box-sizing: border-box; }
+  html { font-size: 100%; }
+  html.grande { font-size: 125%; } html.muy-grande { font-size: 150%; }
+  body { margin: 0; font-family: "Atkinson Hyperlegible", Verdana, Arial, sans-serif; font-size: 1.375rem; line-height: 1.65; color: var(--texto); background: var(--fondo); }
+  .contenedor { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  a { color: var(--azul); text-underline-offset: 4px; }
+  :focus-visible { outline: 4px solid var(--naranja-osc); outline-offset: 3px; }
+  .saltar { position: absolute; left: -9999px; } .saltar:focus { left: 16px; top: 16px; background: #fff; padding: 8px 12px; z-index: 10; }
+
+  .util { background: var(--azul-osc); color: #fff; }
+  .util .contenedor { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding-top: 8px; padding-bottom: 8px; }
+  .util button, .util a { font: inherit; font-size: 1.1rem; font-weight: 700; color: #fff; background: transparent; border: 2px solid #fff; border-radius: 10px; padding: 8px 14px; cursor: pointer; text-decoration: none; min-height: 48px; }
+  .util button[aria-pressed="true"] { background: #fff; color: var(--azul-osc); }
+  .util .grupo { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  header.cab { padding: 28px 0 8px; display: flex; gap: 20px; align-items: center; }
+  header.cab img { width: 110px; height: auto; }
+  h1 { font-size: 2.2rem; line-height: 1.2; margin: 0; color: var(--azul); }
+  h2 { font-size: 1.75rem; line-height: 1.25; margin: 48px 0 16px; color: var(--azul); border-bottom: 4px solid var(--naranja-osc); padding-bottom: 6px; }
+  p { margin: 0 0 14px; }
+
+  /* Cada idea: pictograma + frase */
+  .idea { display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: center; margin: 0 0 18px; padding: 10px; border-radius: 14px; }
+  .idea:nth-child(even) { background: var(--suave); }
+  .idea img { width: 96px; height: 96px; object-fit: contain; background: #fff; border-radius: 10px; }
+  .idea p { margin: 0; }
+  ul.ideas { list-style: none; padding: 0; margin: 0; }
+
+  .boton { display: inline-block; background: var(--naranja-osc); color: #fff; font-weight: 700; padding: 14px 24px; border-radius: 12px; text-decoration: none; margin: 8px 0 4px; }
+  .boton:hover { background: #8A3C10; }
+  .nota { background: var(--suave); border-left: 8px solid var(--azul); border-radius: 10px; padding: 14px 18px; margin: 24px 0; font-size: 1.15rem; }
+  footer { margin-top: 56px; padding: 24px 0 40px; border-top: 3px solid #DDE2EA; font-size: 1rem; line-height: 1.5; color: #333; }
+
+  html.contraste body { background: #000; color: #fff; }
+  html.contraste h1, html.contraste h2, html.contraste a { color: #FFEB3B; }
+  html.contraste .idea:nth-child(even), html.contraste .nota { background: #000; border: 2px solid #fff; }
+  html.contraste .boton { background: #FFEB3B; color: #000; }
+  html.contraste footer { color: #fff; }
+
+  @media (max-width: 560px) {
+    body { font-size: 1.25rem; }
+    .idea { grid-template-columns: 72px 1fr; gap: 14px; }
+    .idea img { width: 72px; height: 72px; }
+    header.cab img { width: 80px; }
+    h1 { font-size: 1.8rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido" data-t="saltar">Ir al contenido</a>
+
+<div class="util" role="region" aria-label="Idioma y ver mejor" data-t-attr="aria-label:region">
+  <div class="contenedor">
+    <div class="grupo" role="group" aria-label="Idioma" data-t-attr="aria-label:idioma">
+      <button type="button" data-lang="va" lang="ca" aria-pressed="false">Valencià</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="true">Castellano</button>
+    </div>
+    <div class="grupo" role="group" aria-label="Ver mejor" data-t-attr="aria-label:ver_mejor">
+      <button type="button" id="b-letra" aria-pressed="false" data-t="letra">Letra más grande</button>
+      <button type="button" id="b-contraste" aria-pressed="false" data-t="contraste">Fondo negro</button>
+      <a href="index.html" data-t="web_completa">Web completa</a>
+    </div>
+  </div>
+</div>
+
+<main id="contenido" class="contenedor">
+  <header class="cab">
+    <img src="img/logo_entrevies_300.png" alt="Logo de Entrevies" data-t-attr="alt:logo">
+    <h1 data-t="h1">Entrevies en lectura fácil</h1>
+  </header>
+  <p data-t="intro">En esta página te explicamos qué es Entrevies con palabras fáciles.</p>
+
+  <h2 data-t="s1">¿Quiénes somos?</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/vecinos.png" alt=""><p data-t="s1a">Somos una asociación de vecinos y vecinas.</p></li>
+    <li class="idea"><img src="img/pictos/casa.png" alt=""><p data-t="s1b">Vivimos en l'Eliana, en los barrios de l'Estació, Montepilar, Montealegre y Pinaeta del Cel.</p></li>
+    <li class="idea"><img src="img/pictos/gente.png" alt=""><p data-t="s1c">Trabajamos juntos para mejorar nuestros barrios.</p></li>
+  </ul>
+
+  <h2 data-t="s2">El paso del tren</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/estacion.png" alt=""><p data-t="s2a">En la estación del tren había un paso para cruzar las vías.</p></li>
+    <li class="idea"><img src="img/pictos/cruzar.png" alt=""><p data-t="s2b">La gente cruzó por ese paso durante más de 100 años.</p></li>
+    <li class="idea"><img src="img/pictos/valla.png" alt=""><p data-t="s2c">En diciembre de 2024 cerraron el paso.</p></li>
+    <li class="idea"><img src="img/pictos/persona_mayor.png" alt=""><p data-t="s2d">Ahora mucha gente no puede ir al otro lado del pueblo. Por ejemplo, las personas mayores.</p></li>
+    <li class="idea"><img src="img/pictos/silla_ruedas.png" alt=""><p data-t="s2e">O las personas que van en silla de ruedas.</p></li>
+    <li class="idea"><img src="img/pictos/seguridad.png" alt=""><p data-t="s2f">Pedimos que abran otra vez el paso. Y que sea seguro para todas las personas.</p></li>
+  </ul>
+
+  <h2 data-t="s3">Lo que pedimos para los barrios</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/parque.png" alt=""><p data-t="s3a">Un parque para descansar, jugar y pasear.</p></li>
+    <li class="idea"><img src="img/pictos/baloncesto.png" alt=""><p data-t="s3b">Pistas para jugar al baloncesto.</p></li>
+    <li class="idea"><img src="img/pictos/tenis.png" alt=""><p data-t="s3c">Pistas para jugar al tenis.</p></li>
+    <li class="idea"><img src="img/pictos/perro.png" alt=""><p data-t="s3d">Un sitio con valla para los perros.</p></li>
+    <li class="idea"><img src="img/pictos/acera.png" alt=""><p data-t="s3e">Aceras sin escalones, para pasar con silla de ruedas o con carrito.</p></li>
+    <li class="idea"><img src="img/pictos/farola.png" alt=""><p data-t="s3f">Más luz en las calles por la noche.</p></li>
+  </ul>
+
+  <h2 data-t="s4">Lo que hacemos</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/ayuntamiento.png" alt=""><p data-t="s4a">Hablamos con el Ayuntamiento para pedir lo que necesitan los barrios.</p></li>
+    <li class="idea"><img src="img/pictos/reunion.png" alt=""><p data-t="s4b">Hacemos reuniones para decidir juntos qué hacer.</p></li>
+    <li class="idea"><img src="img/pictos/noticia.png" alt=""><p data-t="s4c">Contamos las noticias en esta web. Siempre decimos de dónde sale cada noticia. Así sabes que es verdad.</p></li>
+  </ul>
+
+  <h2 data-t="s5">Hazte socio o socia</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/asociacion.png" alt=""><p data-t="s5a">Puedes ser socio o socia de Entrevies.</p></li>
+    <li class="idea"><img src="img/pictos/dinero.png" alt=""><p data-t="s5b">Cuesta 10 euros cada año.</p></li>
+    <li class="idea"><img src="img/pictos/escribir.png" alt=""><p data-t="s5c">Para hacerte socio, rellena un formulario. Pide ayuda si lo necesitas.</p></li>
+  </ul>
+  <p><a class="boton" href="https://forms.gle/yjjYoyd16aUYLde99" target="_blank" rel="noopener" data-t="b_socio">Quiero ser socio o socia</a></p>
+
+  <h2 data-t="s6">Cuéntanos lo que necesitas</h2>
+  <ul class="ideas">
+    <li class="idea"><img src="img/pictos/pregunta.png" alt=""><p data-t="s6a">¿Tienes una pregunta?</p></li>
+    <li class="idea"><img src="img/pictos/pensar.png" alt=""><p data-t="s6b">¿Tienes una idea para el barrio?</p></li>
+    <li class="idea"><img src="img/pictos/peligro.png" alt=""><p data-t="s6c">¿Hay un problema en tu calle?</p></li>
+    <li class="idea"><img src="img/pictos/correo.png" alt=""><p data-t="s6d">Escríbenos. Leemos todos los mensajes y te contestamos.</p></li>
+  </ul>
+  <p><a class="boton" href="https://forms.gle/8DyBwQnaYSF2xMUE6" target="_blank" rel="noopener" data-t="b_mensaje">Escribir un mensaje</a></p>
+  <p data-t="s6e">También puedes escribir un correo a <a href="mailto:entreviesleliana@gmail.com">entreviesleliana@gmail.com</a></p>
+
+  <div class="nota" data-t="nota">Hemos escrito esta página siguiendo las pautas de lectura fácil. Todavía no la han revisado personas con discapacidad intelectual. Si algo no se entiende, dínoslo y lo cambiamos.</div>
+</main>
+
+<footer class="contenedor">
+  <p data-t="pie"><strong>Associació Veïnal Entrevies de l'Eliana</strong> · entreviesleliana@gmail.com</p>
+  <p data-t="arasaac">Los símbolos pictográficos utilizados son propiedad del Gobierno de Aragón y han sido creados por Sergio Palao para ARASAAC (<a href="https://arasaac.org" target="_blank" rel="noopener">arasaac.org</a>), que los distribuye bajo Licencia Creative Commons BY-NC-SA. Esta página se comparte con la misma licencia.</p>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    va: {
+      titulo: 'Entrevies en lectura fàcil', saltar: 'Anar al contingut', idioma: 'Idioma', ver_mejor: 'Veure millor', region: 'Idioma i veure millor',
+      letra: 'Lletra més gran', contraste: 'Fons negre', web_completa: 'Web completa', logo: "Logotip d'Entrevies",
+      h1: 'Entrevies en lectura fàcil', intro: "En aquesta pàgina t'expliquem què és Entrevies amb paraules fàcils.",
+      s1: 'Qui som?', s1a: 'Som una associació de veïns i veïnes.',
+      s1b: "Vivim a l'Eliana, als barris de l'Estació, Montepilar, Montealegre i Pinaeta del Cel.",
+      s1c: 'Treballem junts per a millorar els nostres barris.',
+      s2: 'El pas del tren', s2a: "A l'estació del tren hi havia un pas per a creuar les vies.",
+      s2b: 'La gent va creuar per aquest pas durant més de 100 anys.', s2c: 'En desembre de 2024 van tancar el pas.',
+      s2d: "Ara molta gent no pot anar a l'altre costat del poble. Per exemple, les persones majors.",
+      s2e: 'O les persones que van en cadira de rodes.', s2f: 'Demanem que tornen a obrir el pas. I que siga segur per a totes les persones.',
+      s3: 'El que demanem per als barris', s3a: 'Un parc per a descansar, jugar i passejar.', s3b: 'Pistes per a jugar a bàsquet.',
+      s3c: 'Pistes per a jugar a tenis.', s3d: 'Un lloc tancat per als gossos.', s3e: 'Voreres sense escalons, per a passar amb cadira de rodes o amb cotxet.',
+      s3f: 'Més llum als carrers per la nit.',
+      s4: 'El que fem', s4a: "Parlem amb l'Ajuntament per a demanar el que necessiten els barris.", s4b: 'Fem reunions per a decidir junts què fer.',
+      s4c: "Contem les notícies en aquesta web. Sempre diem d'on ix cada notícia. Així saps que és veritat.",
+      s5: 'Fes-te soci o sòcia', s5a: "Pots ser soci o sòcia d'Entrevies.", s5b: 'Costa 10 euros cada any.',
+      s5c: "Per a fer-te soci, emplena un formulari. Demana ajuda si la necessites.", b_socio: 'Vull ser soci o sòcia',
+      s6: 'Conta\'ns el que necessites', s6a: 'Tens una pregunta?', s6b: 'Tens una idea per al barri?', s6c: 'Hi ha un problema al teu carrer?',
+      s6d: "Escriu-nos. Llegim tots els missatges i et contestem.", b_mensaje: 'Escriure un missatge',
+      s6e: 'També pots escriure un correu a <a href="mailto:entreviesleliana@gmail.com">entreviesleliana@gmail.com</a>',
+      nota: "Hem escrit aquesta pàgina seguint les pautes de lectura fàcil. Encara no l'han revisada persones amb discapacitat intel·lectual. Si alguna cosa no s'entén, digues-nos-ho i la canviem.",
+      pie: "<strong>Associació Veïnal Entrevies de l'Eliana</strong> · entreviesleliana@gmail.com",
+      arasaac: 'Els símbols pictogràfics utilitzats són propietat del Govern d\'Aragó i han sigut creats per Sergio Palao per a ARASAAC (<a href="https://arasaac.org" target="_blank" rel="noopener">arasaac.org</a>), que els distribuïx sota Llicència Creative Commons BY-NC-SA. Aquesta pàgina es compartix amb la mateixa llicència.'
+    }
+  };
+  function leer(k, d) { try { var v = localStorage.getItem('entrevies-' + k); return v === null ? d : v; } catch (e) { return d; } }
+  function guardar(k, v) { try { localStorage.setItem('entrevies-' + k, v); } catch (e) {} }
+  var q = (location.search.match(/[?&]lang=(va|es)\b/) || [])[1];
+  var g = leer('idioma', 'es');
+  var lang = q || (g === 'va' ? 'va' : 'es');
+
+  function aplicar() {
+    document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : 'es';
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      if (el.dataset.es == null) el.dataset.es = el.innerHTML;
+      var v = lang === 'va' ? T.va[el.dataset.t] : null;
+      el.innerHTML = v != null ? v : el.dataset.es;
+    });
+    document.querySelectorAll('[data-t-attr]').forEach(function (el) {
+      var x = el.getAttribute('data-t-attr').split(':'), at = x[0], k = x[1];
+      if (el.dataset.esAttr == null) el.dataset.esAttr = el.getAttribute(at);
+      el.setAttribute(at, lang === 'va' && T.va[k] ? T.va[k] : el.dataset.esAttr);
+    });
+    document.title = lang === 'va' ? T.va.titulo : 'Entrevies en lectura fácil';
+    document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang); });
+  }
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { lang = b.dataset.lang; guardar('idioma', lang); aplicar(); });
+  });
+
+  var raiz = document.documentElement;
+  function acc() {
+    var grande = leer('lf-letra', '0') === '1', contraste = leer('contraste', '0') === '1';
+    raiz.classList.toggle('grande', grande); raiz.classList.toggle('contraste', contraste);
+    document.getElementById('b-letra').setAttribute('aria-pressed', grande);
+    document.getElementById('b-contraste').setAttribute('aria-pressed', contraste);
+  }
+  document.getElementById('b-letra').addEventListener('click', function () { guardar('lf-letra', leer('lf-letra', '0') === '1' ? '0' : '1'); acc(); });
+  document.getElementById('b-contraste').addEventListener('click', function () { guardar('contraste', leer('contraste', '0') === '1' ? '0' : '1'); acc(); });
+
+  // Los enlaces que abren otra pestaña lo anuncian a los lectores de pantalla
+  document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+    a.insertAdjacentHTML('beforeend', '<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (nueva pestaña)</span>');
+  });
+  acc(); aplicar();
+})();
+</script>
+</body>
+</html>

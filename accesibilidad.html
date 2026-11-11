@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Declaración de accesibilidad · Entrevies l'Eliana</title>
+<meta name="description" content="Declaración de accesibilidad de la web de la Asociación Vecinal Entrevies de l'Eliana: qué cumple, cómo se ha comprobado y cómo avisarnos de un problema.">
+<link rel="icon" href="img/logo_entrevies_300.png">
+<link rel="canonical" href="https://entreviesleliana-cmd.github.io/accesibilidad.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --azul:#1F4E9E; --azul-osc:#163A78; --naranja-osc:#A84A14; --texto:#1D2430; --suave:#F3F5F9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Atkinson Hyperlegible", Verdana, Arial, sans-serif; font-size: 1.125rem; line-height: 1.6; color: var(--texto); background: #fff; }
+  .contenedor { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  a { color: var(--azul); text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--naranja-osc); outline-offset: 3px; }
+  .saltar { position: absolute; left: -9999px; } .saltar:focus { left: 16px; top: 16px; background: #fff; padding: 8px 12px; }
+  .util { background: var(--azul-osc); }
+  .util .contenedor { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding-top: 8px; padding-bottom: 8px; }
+  .util button, .util a { font: inherit; font-size: 1rem; font-weight: 700; color: #fff; background: transparent; border: 2px solid #fff; border-radius: 8px; padding: 6px 12px; cursor: pointer; text-decoration: none; min-height: 44px; }
+  .util button[aria-pressed="true"] { background: #fff; color: var(--azul-osc); }
+  .grupo { display: flex; gap: 6px; flex-wrap: wrap; }
+  header.cab { display: flex; gap: 18px; align-items: center; padding: 28px 0 8px; }
+  header.cab img { width: 80px; height: auto; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0; color: var(--azul); }
+  h2 { font-size: 1.4rem; margin: 36px 0 10px; color: var(--azul); }
+  .estado { background: var(--suave); border-left: 8px solid var(--naranja-osc); border-radius: 10px; padding: 14px 18px; }
+  ul { padding-left: 1.3em; } li { margin-bottom: 6px; }
+  footer { margin: 48px 0 0; padding: 20px 0 40px; border-top: 2px solid #DDE2EA; font-size: 1rem; }
+  [lang-bloque] { display: none; } [lang-bloque].activo { display: block; }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido / Anar al contingut / Skip to content</a>
+<div class="util" role="region" aria-label="Idioma / Language">
+  <div class="contenedor">
+    <div class="grupo" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="va" lang="ca" aria-pressed="false">Valencià</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="true">Castellano</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+    </div>
+    <a href="index.html" id="volver">← Web</a>
+  </div>
+</div>
+
+<main id="contenido" class="contenedor">
+
+<!-- ===================== CASTELLANO ===================== -->
+<div lang-bloque="es" lang="es">
+  <header class="cab"><img src="img/logo_entrevies_300.png" alt="Entrevies"><h1>Declaración de accesibilidad</h1></header>
+  <p>La Associació Veïnal Entrevies de l'Eliana quiere que <strong>todas las personas</strong> puedan usar esta web en igualdad de condiciones: personas con baja visión o ceguera, sordas, con discapacidad intelectual, autistas, con dislexia, mayores o con poca práctica con internet. Lo hacemos de forma voluntaria, porque defendemos la accesibilidad universal: para todas las personas y todos los entornos.</p>
+
+  <h2>Situación de cumplimiento</h2>
+  <div class="estado">
+    <p><strong>Parcialmente conforme</strong> con las Pautas de Accesibilidad para el Contenido Web <strong>WCAG 2.2, nivel AA</strong>.</p>
+    <p style="margin:0">Decimos «parcialmente» porque todavía no la ha revisado una entidad experta ni la han probado personas usuarias de lectores de pantalla, y porque algunos contenidos dependen de otras webs (ver abajo).</p>
+  </div>
+
+  <h2>Qué hemos comprobado y cómo</h2>
+  <p>Comprobación hecha el <strong>11 de noviembre de 2026</strong> en la página principal y en la página de lectura fácil:</p>
+  <ul>
+    <li><strong>Herramienta automática axe-core 4.10</strong> (de Deque Systems), con las reglas de WCAG 2.0, 2.1 y 2.2 (niveles A y AA) y de buenas prácticas: <strong>0 errores</strong> en valenciano, castellano e inglés, y también con el alto contraste, el modo calma, el espaciado ampliado y la letra al 150 %.</li>
+    <li><strong>Contraste de colores</strong> calculado a mano: todos los textos superan la proporción mínima de 4,5 a 1.</li>
+    <li><strong>Uso solo con teclado</strong>: se puede llegar a los idiomas, a la lectura fácil y al panel de accesibilidad; el panel se abre con Intro, los botones funcionan con la barra espaciadora, Escape lo cierra, y el elemento activo siempre se ve.</li>
+    <li><strong>Pantallas pequeñas</strong>: la web se adapta al móvil sin tener que desplazarse hacia los lados.</li>
+  </ul>
+
+  <h2>Qué ofrece la web</h2>
+  <ul>
+    <li>Tres idiomas: valenciano, castellano e inglés.</li>
+    <li><a href="lectura-facil.html">Versión en lectura fácil</a> con pictogramas de ARASAAC, en valenciano y castellano.</li>
+    <li>Panel de accesibilidad: letra más grande (hasta un 150 %), alto contraste (negro, blanco y amarillo), más espacio entre líneas y letras, enlaces subrayados y <strong>modo calma</strong> (menos colores y sin movimiento, pensado también para personas autistas o con sensibilidad sensorial).</li>
+    <li>Letra Atkinson Hyperlegible, diseñada para personas con baja visión.</li>
+    <li>Respeta la opción del sistema «reducir movimiento».</li>
+    <li>Enlace para saltar al contenido, títulos ordenados y textos alternativos en las imágenes.</li>
+    <li>Los enlaces que abren otra pestaña lo anuncian a los lectores de pantalla.</li>
+    <li>Los vídeos no se cargan solos: solo cuando la persona los pulsa.</li>
+  </ul>
+
+  <h2>Lo que todavía no es accesible o no depende de nosotros</h2>
+  <ul>
+    <li><strong>Formularios de Google</strong> (alta de socios y «Cuéntanos»): los proporciona Google; no podemos garantizar su accesibilidad completa. Si te cuesta usarlos, escríbenos por correo y te ayudamos.</li>
+    <li><strong>Documentos PDF antiguos</strong> (boletines y hojas de 2026): se hicieron antes de esta revisión y pueden no ser accesibles para lectores de pantalla. Te los enviamos en otro formato si lo pides.</li>
+    <li><strong>Vídeos y webs externas</strong> (YouTube, Instagram, Ayuntamiento, prensa): su accesibilidad depende de cada plataforma.</li>
+    <li><strong>Titulares automáticos de prensa</strong>: se muestran en el idioma original del periódico.</li>
+    <li><strong>Lectura fácil</strong>: está escrita siguiendo las pautas, pero todavía no la han validado personas con discapacidad intelectual.</li>
+    <li><strong>Traducciones</strong>: pendientes de revisión por personas nativas.</li>
+  </ul>
+
+  <h2>¿Has encontrado un problema?</h2>
+  <p>Cuéntanoslo y lo arreglaremos lo antes posible. Escríbenos a <a href="mailto:entreviesleliana@gmail.com?subject=Accesibilidad%20de%20la%20web">entreviesleliana@gmail.com</a> o usa el formulario <a href="https://forms.gle/8DyBwQnaYSF2xMUE6" target="_blank" rel="noopener">«Cuéntanos»<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (se abre en una pestaña nueva)</span></a>. Si necesitas alguna información en otro formato, pídenosla.</p>
+
+  <h2>Fecha</h2>
+  <p>Declaración preparada el 11 de noviembre de 2026. La revisaremos cada vez que cambiemos algo importante de la web y, como mínimo, una vez al año.</p>
+</div>
+
+<!-- ===================== VALENCIÀ ===================== -->
+<div lang-bloque="va" lang="ca-ES-valencia">
+  <header class="cab"><img src="img/logo_entrevies_300.png" alt="Entrevies"><h1>Declaració d'accessibilitat</h1></header>
+  <p>L'Associació Veïnal Entrevies de l'Eliana vol que <strong>totes les persones</strong> puguen usar aquesta web en igualtat de condicions: persones amb baixa visió o ceguesa, sordes, amb discapacitat intel·lectual, autistes, amb dislèxia, majors o amb poca pràctica amb internet. Ho fem de manera voluntària, perquè defensem l'accessibilitat universal: per a totes les persones i tots els entorns.</p>
+
+  <h2>Situació de compliment</h2>
+  <div class="estado">
+    <p><strong>Parcialment conforme</strong> amb les Pautes d'Accessibilitat per al Contingut Web <strong>WCAG 2.2, nivell AA</strong>.</p>
+    <p style="margin:0">Diem «parcialment» perquè encara no l'ha revisada una entitat experta ni l'han provada persones usuàries de lectors de pantalla, i perquè alguns continguts depenen d'altres webs (vegeu més avall).</p>
+  </div>
+
+  <h2>Què hem comprovat i com</h2>
+  <p>Comprovació feta l'<strong>11 de novembre de 2026</strong> a la pàgina principal i a la pàgina de lectura fàcil:</p>
+  <ul>
+    <li><strong>Eina automàtica axe-core 4.10</strong> (de Deque Systems), amb les regles de WCAG 2.0, 2.1 i 2.2 (nivells A i AA) i de bones pràctiques: <strong>0 errors</strong> en valencià, castellà i anglés, i també amb l'alt contrast, el mode calma, l'espaiat ampliat i la lletra al 150 %.</li>
+    <li><strong>Contrast de colors</strong> calculat a mà: tots els textos superen la proporció mínima de 4,5 a 1.</li>
+    <li><strong>Ús només amb teclat</strong>: es pot arribar als idiomes, a la lectura fàcil i al panell d'accessibilitat; el panell s'obri amb Intro, els botons funcionen amb la barra espaiadora, Escape el tanca i l'element actiu sempre es veu.</li>
+    <li><strong>Pantalles xicotetes</strong>: la web s'adapta al mòbil sense haver de desplaçar-se cap als costats.</li>
+  </ul>
+
+  <h2>Què oferix la web</h2>
+  <ul>
+    <li>Tres idiomes: valencià, castellà i anglés.</li>
+    <li><a href="lectura-facil.html?lang=va">Versió en lectura fàcil</a> amb pictogrames d'ARASAAC, en valencià i castellà.</li>
+    <li>Panell d'accessibilitat: lletra més gran (fins a un 150 %), alt contrast (negre, blanc i groc), més espai entre línies i lletres, enllaços subratllats i <strong>mode calma</strong> (menys colors i sense moviment, pensat també per a persones autistes o amb sensibilitat sensorial).</li>
+    <li>Lletra Atkinson Hyperlegible, dissenyada per a persones amb baixa visió.</li>
+    <li>Respecta l'opció del sistema «reduir moviment».</li>
+    <li>Enllaç per a anar al contingut, títols ordenats i textos alternatius a les imatges.</li>
+    <li>Els enllaços que obrin una altra pestanya ho anuncien als lectors de pantalla.</li>
+    <li>Els vídeos no es carreguen sols: només quan la persona els polsa.</li>
+  </ul>
+
+  <h2>El que encara no és accessible o no depén de nosaltres</h2>
+  <ul>
+    <li><strong>Formularis de Google</strong> (alta de socis i «Conta'ns»): els proporciona Google; no podem garantir-ne l'accessibilitat completa. Si et costa usar-los, escriu-nos per correu i t'ajudem.</li>
+    <li><strong>Documents PDF antics</strong> (butlletins i fulls de 2026): es van fer abans d'aquesta revisió i poden no ser accessibles per a lectors de pantalla. Te'ls enviem en un altre format si ho demanes.</li>
+    <li><strong>Vídeos i webs externes</strong> (YouTube, Instagram, Ajuntament, premsa): la seua accessibilitat depén de cada plataforma.</li>
+    <li><strong>Titulars automàtics de premsa</strong>: es mostren en l'idioma original del periòdic.</li>
+    <li><strong>Lectura fàcil</strong>: està escrita seguint les pautes, però encara no l'han validada persones amb discapacitat intel·lectual.</li>
+    <li><strong>Traduccions</strong>: pendents de revisió per persones natives.</li>
+  </ul>
+
+  <h2>Has trobat un problema?</h2>
+  <p>Conta-ho i ho arreglarem com més prompte millor. Escriu-nos a <a href="mailto:entreviesleliana@gmail.com?subject=Accessibilitat%20de%20la%20web">entreviesleliana@gmail.com</a> o usa el formulari <a href="https://forms.gle/8DyBwQnaYSF2xMUE6" target="_blank" rel="noopener">«Conta'ns»<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (s'obri en una pestanya nova)</span></a>. Si necessites alguna informació en un altre format, demana-la.</p>
+
+  <h2>Data</h2>
+  <p>Declaració preparada l'11 de novembre de 2026. La revisarem cada vegada que canviem alguna cosa important de la web i, com a mínim, una vegada a l'any.</p>
+</div>
+
+<!-- ===================== ENGLISH ===================== -->
+<div lang-bloque="en" lang="en">
+  <header class="cab"><img src="img/logo_entrevies_300.png" alt="Entrevies"><h1>Accessibility statement</h1></header>
+  <p>The Associació Veïnal Entrevies de l'Eliana wants <strong>everyone</strong> to be able to use this website on equal terms: people with low vision or blindness, Deaf people, people with intellectual disabilities, autistic people, people with dyslexia, older people and people with little internet experience. We do this voluntarily, because we stand for universal accessibility: for everyone and every setting.</p>
+
+  <h2>Compliance status</h2>
+  <div class="estado">
+    <p><strong>Partially compliant</strong> with the Web Content Accessibility Guidelines <strong>WCAG 2.2, level AA</strong>.</p>
+    <p style="margin:0">We say «partially» because the website has not yet been reviewed by an expert organisation or tested by screen reader users, and because some content depends on other websites (see below).</p>
+  </div>
+
+  <h2>What we have checked and how</h2>
+  <p>Checks carried out on <strong>11 November 2026</strong> on the home page and the easy-read page:</p>
+  <ul>
+    <li><strong>Automated tool axe-core 4.10</strong> (by Deque Systems), with the WCAG 2.0, 2.1 and 2.2 rules (levels A and AA) and best practices: <strong>0 errors</strong> in Valencian, Spanish and English, and also with high contrast, calm mode, extra spacing and text at 150%.</li>
+    <li><strong>Colour contrast</strong> calculated by hand: all text exceeds the minimum ratio of 4.5 to 1.</li>
+    <li><strong>Keyboard-only use</strong>: languages, the easy-read version and the accessibility panel can all be reached; the panel opens with Enter, buttons work with the space bar, Escape closes it and the focused element is always visible.</li>
+    <li><strong>Small screens</strong>: the website adapts to mobile phones without horizontal scrolling.</li>
+  </ul>
+
+  <h2>What the website offers</h2>
+  <ul>
+    <li>Three languages: Valencian, Spanish and English.</li>
+    <li><a href="lectura-facil.html">Easy-read version</a> with ARASAAC pictograms, in Valencian and Spanish.</li>
+    <li>Accessibility panel: larger text (up to 150%), high contrast (black, white and yellow), more space between lines and letters, underlined links and <strong>calm mode</strong> (fewer colours and no motion, designed also for autistic people and people with sensory sensitivity).</li>
+    <li>Atkinson Hyperlegible typeface, designed for people with low vision.</li>
+    <li>It respects the system's «reduce motion» setting.</li>
+    <li>Skip link, ordered headings and alternative text for images.</li>
+    <li>Links that open a new tab announce it to screen readers.</li>
+    <li>Videos do not load by themselves, only when the person presses them.</li>
+  </ul>
+
+  <h2>What is not yet accessible or does not depend on us</h2>
+  <ul>
+    <li><strong>Google Forms</strong> (membership and «Tell us»): provided by Google; we cannot guarantee their full accessibility. If you find them hard to use, email us and we will help you.</li>
+    <li><strong>Older PDF documents</strong> (2026 newsletters and sheets): made before this review, they may not be accessible to screen readers. We will send them in another format on request.</li>
+    <li><strong>Videos and external websites</strong> (YouTube, Instagram, Town Council, press): their accessibility depends on each platform.</li>
+    <li><strong>Automatic press headlines</strong>: shown in the newspaper's original language.</li>
+    <li><strong>Easy read</strong>: written following the guidelines, but not yet validated by people with intellectual disabilities.</li>
+    <li><strong>Translations</strong>: pending review by native speakers.</li>
+  </ul>
+
+  <h2>Have you found a problem?</h2>
+  <p>Tell us and we will fix it as soon as possible. Email us at <a href="mailto:entreviesleliana@gmail.com?subject=Website%20accessibility">entreviesleliana@gmail.com</a> or use the <a href="https://forms.gle/8DyBwQnaYSF2xMUE6" target="_blank" rel="noopener">«Tell us» form<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (opens in a new tab)</span></a> (in Valencian and Spanish). If you need any information in another format, just ask.</p>
+
+  <h2>Date</h2>
+  <p>Statement prepared on 11 November 2026. We will review it whenever we make an important change to the website and at least once a year.</p>
+</div>
+
+</main>
+
+<footer class="contenedor">Associació Veïnal Entrevies de l'Eliana · NIF G22454433 · entreviesleliana@gmail.com</footer>
+
+<script>
+(function () {
+  function leer(k, d) { try { var v = localStorage.getItem('entrevies-' + k); return v === null ? d : v; } catch (e) { return d; } }
+  function guardar(k, v) { try { localStorage.setItem('entrevies-' + k, v); } catch (e) {} }
+  var q = (location.search.match(/[?&]lang=(va|es|en)\b/) || [])[1];
+  var lang = q || leer('idioma', 'es');
+  var TIT = { es: "Declaración de accesibilidad · Entrevies l'Eliana", va: "Declaració d'accessibilitat · Entrevies l'Eliana", en: "Accessibility statement · Entrevies l'Eliana" };
+  var HTML = { es: 'es', va: 'ca-ES-valencia', en: 'en' };
+  function aplicar() {
+    document.documentElement.lang = HTML[lang];
+    document.querySelectorAll('[lang-bloque]').forEach(function (b) { b.classList.toggle('activo', b.getAttribute('lang-bloque') === lang); });
+    document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang); });
+    document.title = TIT[lang];
+  }
+  document.querySelectorAll('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; guardar('idioma', lang); aplicar(); }); });
+  aplicar();
+})();
+</script>
+</body>
+</html>
