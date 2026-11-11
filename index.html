@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrevies l'Eliana · Asociación vecinal</title>
+<meta name="description" content="Asociación Vecinal Entrevies de l'Eliana: por la reapertura del paso a nivel peatonal de la estación y por barrios conectados, seguros y accesibles en l'Estació, Montepilar, Montealegre, Pinaeta del Sel y alrededores.">
+<link rel="icon" href="img/logo_entrevies.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bitter:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Colores sacados del logo */
+  :root {
+    --azul: #1F4E9E;
+    --azul-osc: #163A78;
+    --azul-claro: #E8EEF8;
+    --verde: #15873F;
+    --verde-osc: #0E4D22;
+    --verde-claro: #E6F3EA;
+    --naranja: #EC7A2C;
+    --naranja-osc: #C2571A;
+    --naranja-claro: #FDF0E6;
+    --texto: #1D2430;
+    --texto-suave: #4A5568;
+    --fondo: #FFFFFF;
+    --fondo-alt: #F6F7F9;
+    --borde: #DDE2EA;
+    --radio: 14px;
+    --ancho: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--texto);
+    background: var(--fondo);
+  }
+  h1, h2, h3 { font-family: "Bitter", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+  h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); color: var(--azul); }
+  h3 { font-size: 1.25rem; }
+  p { margin: 0 0 1em; }
+  a { color: var(--azul); }
+  img { max-width: 100%; display: block; }
+  .contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding: 0 16px; }
+  .saltar { position: absolute; left: -9999px; }
+  .saltar:focus { left: 16px; top: 16px; background: #fff; padding: 8px 12px; z-index: 100; }
+  :focus-visible { outline: 3px solid var(--naranja); outline-offset: 3px; }
+
+  /* Franja de traviesas, motivo del logo */
+  .via {
+    height: 14px;
+    background: repeating-linear-gradient(90deg, var(--azul) 0 22px, transparent 22px 30px);
+  }
+  .via.verde { background: repeating-linear-gradient(90deg, var(--verde) 0 6px, transparent 6px 12px); height: 10px; }
+
+  /* Cabecera */
+  header.sitio {
+    position: sticky; top: 0; z-index: 50;
+    background: #fff;
+    border-bottom: 4px solid var(--naranja);
+  }
+  .barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--texto); }
+  .marca img { width: 48px; height: auto; }
+  .marca strong { font-family: "Bitter", serif; font-size: 1.25rem; color: var(--naranja-osc); display: block; line-height: 1.1; }
+  .marca span { font-size: .9rem; color: var(--verde-osc); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; flex-wrap: wrap; }
+  nav a {
+    display: block; padding: 8px 12px; border-radius: 8px;
+    text-decoration: none; color: var(--texto); font-weight: 700; font-size: 1rem;
+  }
+  nav a:hover { background: var(--azul-claro); color: var(--azul); }
+  nav a.boton-nav { background: var(--naranja); color: #fff; }
+  nav a.boton-nav:hover { background: var(--naranja-osc); color: #fff; }
+  .menu-toggle {
+    display: none; background: none; border: 2px solid var(--azul); color: var(--azul);
+    border-radius: 8px; padding: 8px 12px; font: inherit; font-weight: 700; cursor: pointer;
+  }
+
+  /* Portada */
+  .portada {
+    background: linear-gradient(135deg, var(--azul-osc) 0%, var(--azul) 60%, #2B63BE 100%);
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .portada::after {
+    content: ""; position: absolute; right: -80px; bottom: -40px; width: 460px; height: 460px;
+    border-radius: 50%;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 10px, transparent 10px 22px);
+    pointer-events: none;
+  }
+  .portada .contenedor { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; padding-top: 64px; padding-bottom: 64px; position: relative; z-index: 1; }
+  .etiqueta {
+    display: inline-block; background: var(--naranja); color: #fff; font-weight: 700;
+    padding: 4px 12px; border-radius: 999px; font-size: .95rem; margin-bottom: 16px;
+  }
+  .portada h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); color: #fff; }
+  .portada p.entrada { font-size: 1.25rem; max-width: 36ch; opacity: .95; }
+  .botones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .boton {
+    display: inline-block; padding: 14px 22px; border-radius: 10px; font-weight: 700;
+    text-decoration: none; font-size: 1.05rem; border: 2px solid transparent;
+  }
+  .boton.principal { background: var(--naranja); color: #fff; }
+  .boton.principal:hover { background: var(--naranja-osc); }
+  .boton.secundario { border-color: #fff; color: #fff; }
+  .boton.secundario:hover { background: rgba(255,255,255,.12); }
+
+  .contador {
+    background: #fff; color: var(--texto); border-radius: var(--radio);
+    padding: 28px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    border-top: 8px solid var(--naranja);
+  }
+  .contador .num { font-family: "Bitter", serif; font-size: clamp(3.5rem, 9vw, 5.5rem); font-weight: 800; color: var(--naranja-osc); line-height: 1; }
+  .contador .que { font-weight: 700; font-size: 1.2rem; margin-top: 8px; }
+  .contador .desde { color: var(--texto-suave); font-size: 1rem; margin-top: 4px; }
+  .contador hr { border: 0; border-top: 1px solid var(--borde); margin: 18px 0; }
+  .contador .siglo { font-family: "Bitter", serif; font-size: 1.6rem; font-weight: 800; color: var(--verde); }
+
+  /* Secciones */
+  section { padding: 72px 0; }
+  section.alt { background: var(--fondo-alt); }
+  .intro { max-width: 70ch; color: var(--texto-suave); font-size: 1.2rem; }
+
+  .dos-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .tarjeta {
+    background: #fff; border: 1px solid var(--borde); border-radius: var(--radio);
+    padding: 24px; border-left: 8px solid var(--azul);
+  }
+  .tarjeta.naranja { border-left-color: var(--naranja); }
+  .tarjeta.verde { border-left-color: var(--verde); }
+  .tarjeta ul { padding-left: 1.2em; margin: 0; }
+  .tarjeta li { margin-bottom: .4em; }
+
+  .cita {
+    font-family: "Bitter", serif; font-size: 1.35rem; color: var(--verde-osc);
+    border-left: 6px solid var(--verde); padding: 8px 0 8px 20px; margin: 24px 0;
+  }
+
+  /* Cronología */
+  .cronologia { list-style: none; margin: 32px 0 0; padding: 0; position: relative; }
+  .cronologia::before {
+    content: ""; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 6px;
+    background: repeating-linear-gradient(180deg, var(--azul) 0 10px, transparent 10px 16px);
+  }
+  .cronologia li { position: relative; padding: 0 0 22px 48px; }
+  .cronologia li::before {
+    content: ""; position: absolute; left: 2px; top: 4px; width: 24px; height: 24px;
+    border-radius: 50%; background: #fff; border: 5px solid var(--naranja);
+  }
+  .cronologia time { display: block; font-weight: 700; color: var(--naranja-osc); }
+
+  /* Reivindicaciones */
+  .barrios { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 36px; padding: 0; list-style: none; }
+  .barrios li {
+    background: var(--verde-claro); color: var(--verde-osc); font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; border: 1px solid #BFE0CB;
+  }
+  .rejilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .reiv {
+    background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 24px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .reiv .icono {
+    width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center;
+    background: var(--verde-claro); color: var(--verde);
+  }
+  .reiv:nth-child(3n+2) .icono { background: var(--azul-claro); color: var(--azul); }
+  .reiv:nth-child(3n) .icono { background: var(--naranja-claro); color: var(--naranja-osc); }
+  .reiv svg { width: 32px; height: 32px; }
+  .reiv h3 { margin: 4px 0 0; }
+  .reiv p { margin: 0; color: var(--texto-suave); }
+
+  /* Quiénes somos */
+  .datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .dato { text-align: center; padding: 24px; border-radius: var(--radio); background: var(--azul-claro); }
+  .dato b { display: block; font-family: "Bitter", serif; font-size: 2rem; color: var(--azul); }
+
+  /* Participa */
+  .participa { background: var(--verde-osc); color: #fff; }
+  .participa h2 { color: #fff; }
+  .participa .intro { color: #E3F1E8; }
+  .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .paso { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radio); padding: 24px; }
+  .paso .n {
+    display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--naranja); font-weight: 700; margin-bottom: 12px;
+  }
+  .paso a { color: #fff; font-weight: 700; }
+  .participa .boton.principal { margin-top: 8px; }
+
+  /* Actividades */
+  .actividad { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; display: flex; flex-direction: column; }
+  .actividad .cab { padding: 6px 20px; color: #fff; font-weight: 700; font-size: .95rem; background: var(--azul); }
+  .actividad:nth-child(3n+2) .cab { background: var(--verde); }
+  .actividad:nth-child(3n) .cab { background: var(--naranja-osc); }
+  .actividad .cuerpo { padding: 20px; }
+  .actividad p { color: var(--texto-suave); margin: 0; }
+  .redes { margin-top: 40px; background: var(--azul-claro); border-radius: var(--radio); padding: 28px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .redes h3 { margin: 0 0 4px; color: var(--azul); }
+  .redes p { margin: 0; color: var(--texto-suave); }
+  .botones-redes { display: flex; flex-wrap: wrap; gap: 10px; }
+  .red {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 10px;
+    color: #fff; text-decoration: none; font-weight: 700;
+  }
+  .red svg { width: 22px; height: 22px; fill: currentColor; }
+  .red.fb { background: #1877F2; }
+  .red.ig { background: linear-gradient(45deg, #F58529, #DD2A7B 50%, #8134AF); }
+  .red.tt { background: #111; }
+  .red:hover { filter: brightness(1.1); }
+
+  /* Noticias */
+  .noticias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .noticias > p { grid-column: 1 / -1; }
+  .noticia { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .noticia .meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: .95rem; }
+  .noticia .cat { background: var(--naranja-claro); color: var(--naranja-osc); font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+  .noticia .cat.pueblo { background: var(--verde-claro); color: var(--verde-osc); }
+  .noticia time { color: var(--texto-suave); }
+  .noticia h3 { margin: 0; font-size: 1.15rem; }
+  .noticia p { margin: 0; color: var(--texto-suave); }
+  .noticia a.mas { font-weight: 700; margin-top: auto; }
+  .nota-fuente { margin-top: 24px; color: var(--texto-suave); }
+  .noticia p.fuente { font-size: .95rem; color: var(--texto-suave); font-style: italic; }
+  .compromiso {
+    margin-top: 24px; background: #fff; border: 1px solid var(--borde); border-left: 8px solid var(--verde);
+    border-radius: var(--radio); padding: 16px 20px; max-width: 90ch;
+  }
+
+  /* Vídeos */
+  .video { padding: 0; overflow: hidden; }
+  .video .marco { position: relative; aspect-ratio: 16 / 9; background: var(--azul-osc); }
+  .video .marco.vertical { aspect-ratio: 9 / 14; }
+  .video .marco iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video .cargar {
+    position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer; color: #fff; font: inherit; font-weight: 700;
+    background: center / cover no-repeat var(--azul-osc); display: grid; place-items: center; text-align: center; padding: 16px;
+  }
+  .video .cargar::before { content: ""; position: absolute; inset: 0; background: rgba(10, 25, 55, .45); }
+  .video .cargar span { position: relative; display: grid; gap: 10px; justify-items: center; }
+  .video .cargar .play { width: 64px; height: 64px; border-radius: 50%; background: var(--naranja); display: grid; place-items: center; }
+  .video .cargar .play svg { width: 28px; height: 28px; fill: #fff; margin-left: 4px; }
+  .video .texto { padding: 18px 22px 22px; display: grid; gap: 6px; }
+  .red.yt { background: #E00; }
+
+  /* Recursos */
+  .recurso h3 { color: var(--azul); }
+  .recurso ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+  .recurso a { display: block; padding: 6px 0; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--borde); }
+  .recurso a:hover { text-decoration: underline; }
+  .recurso li:last-child a { border-bottom: 0; }
+
+  /* Formularios */
+  .formulario { background: #fff; color: var(--texto); border-radius: var(--radio); padding: 28px; display: grid; gap: 16px; }
+  .formulario .fila { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .campo label, .campo legend { display: block; font-weight: 700; margin-bottom: 6px; }
+  .campo .ayuda { font-weight: 400; color: var(--texto-suave); font-size: .95rem; }
+  .campo input[type=text], .campo input[type=email], .campo input[type=tel], .campo select, .campo textarea {
+    width: 100%; font: inherit; padding: 12px 14px; border: 2px solid var(--borde); border-radius: 10px; background: #fff; color: var(--texto);
+  }
+  .campo textarea { min-height: 150px; resize: vertical; }
+  .campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--azul); outline: none; }
+  fieldset.campo { border: 0; padding: 0; margin: 0; }
+  .opciones { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opciones label {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 700; margin: 0;
+    border: 2px solid var(--borde); border-radius: 10px; padding: 10px 14px; cursor: pointer;
+  }
+  .opciones input { width: 20px; height: 20px; accent-color: var(--naranja); }
+  .opciones label:has(input:checked) { border-color: var(--naranja); background: var(--naranja-claro); }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-size: 1rem; }
+  .check input { width: 22px; height: 22px; margin-top: 3px; accent-color: var(--verde); flex: none; }
+  .formulario button {
+    justify-self: start; font: inherit; font-weight: 700; font-size: 1.1rem; cursor: pointer;
+    background: var(--naranja); color: #fff; border: 0; border-radius: 10px; padding: 14px 26px;
+  }
+  .formulario button:hover { background: var(--naranja-osc); }
+  .aviso { font-size: .95rem; color: var(--texto-suave); margin: 0; }
+  .estado { display: none; background: var(--verde-claro); color: var(--verde-osc); border-radius: 10px; padding: 14px 16px; font-weight: 700; }
+  .estado.visible { display: block; }
+  .formulario { position: relative; }
+  .socios-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: start; }
+  .socios-grid ul { padding-left: 1.2em; }
+  .socios-grid li { margin-bottom: .5em; }
+
+  /* Pie */
+  footer { background: var(--texto); color: #CBD2DC; padding: 40px 0; font-size: 1rem; }
+  footer .contenedor { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; }
+  footer a { color: #fff; }
+  footer .logo-pie { background: #fff; border-radius: 10px; padding: 6px; width: 64px; }
+  footer .izq { display: flex; gap: 16px; align-items: center; }
+
+  /* Móvil */
+  @media (max-width: 900px) {
+    .portada .contenedor, .dos-col { grid-template-columns: 1fr; }
+    .rejilla, .pasos, .datos, .noticias { grid-template-columns: 1fr 1fr; }
+    .socios-grid, .redes { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1180px) {
+    .menu-toggle { display: block; }
+    nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 4px solid var(--naranja); }
+    nav.abierto { display: block; }
+    nav ul { flex-direction: column; padding: 8px 16px 16px; }
+    nav a { padding: 12px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 1.0625rem; }
+    .rejilla, .pasos, .datos, .noticias, .formulario .fila { grid-template-columns: 1fr; }
+    .formulario { padding: 20px; }
+    section { padding: 52px 0; }
+    .portada .contenedor { padding-top: 40px; padding-bottom: 48px; }
+    .marca span { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio">
+  <div class="contenedor barra">
+    <a class="marca" href="#inicio" aria-label="Entrevies l'Eliana, inicio">
+      <img src="img/logo_entrevies.jpg" alt="">
+      <div><strong>Entrevies</strong><span>Asociación vecinal · l'Eliana</span></div>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#paso">El paso a nivel</a></li>
+        <li><a href="#barrios">Barrios</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#publicaciones">Publicaciones</a></li>
+        <li><a href="#reuniones">Reuniones</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#somos">Quiénes somos</a></li>
+        <li><a href="#transparencia">Transparencia</a></li>
+        <li><a href="#escribenos">Escríbenos</a></li>
+        <li><a href="#socios" class="boton-nav">Hazte socia/o</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- PORTADA -->
+  <div class="portada" id="inicio">
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta">¡No al cierre del paso a nivel!</span>
+        <h1>Un pueblo unido no se separa con una valla</h1>
+        <p class="entrada">Durante más de 100 años, vecinas y vecinos de l'Eliana han cruzado la vía por el paso de la estación. Queremos que se pueda seguir haciendo, con seguridad y accesible para todas las personas.</p>
+        <div class="botones">
+          <a class="boton principal" href="#socios">Únete a la asociación</a>
+          <a class="boton secundario" href="#paso">Qué ha pasado</a>
+        </div>
+      </div>
+      <aside class="contador" aria-label="Tiempo que lleva cerrado el paso">
+        <div class="num" id="dias">—</div>
+        <div class="que">días con el paso cerrado</div>
+        <div class="desde">desde el 24 de diciembre de 2024</div>
+        <hr>
+        <div class="siglo">+100 años</div>
+        <div class="desde">de paso entre los dos lados del pueblo</div>
+      </aside>
+    </div>
+    <div class="via" aria-hidden="true"></div>
+  </div>
+
+  <!-- PASO A NIVEL -->
+  <section id="paso">
+    <div class="contenedor">
+      <h2>El paso a nivel de la estación</h2>
+      <p class="intro">Es nuestra principal reivindicación. El paso une los barrios de l'Estació, Montepilar y Montealegre con el resto de l'Eliana.</p>
+
+      <div class="dos-col" style="margin-top:32px">
+        <div>
+          <h3>Qué ha pasado</h3>
+          <p>El <strong>24 de diciembre de 2024</strong>, Ferrocarrils de la Generalitat Valenciana (FGV) cerró el paso peatonal que se había utilizado durante más de un siglo. FGV lo ha convertido en un <strong>paso entre andenes</strong> y ya no permite cruzar de un lado al otro del pueblo.</p>
+          <p>Desde entonces, muchas personas no pueden ir de un lado a otro: personas mayores, familias con carritos, quienes van en silla de ruedas y quienes no tienen coche. Lo que antes era un paseo de pocos minutos ahora es un rodeo largo o, directamente, imposible.</p>
+          <p class="cita">«Esta decisión unilateral condena a los barrios de la Estación, Montepilar y Montealegre a un aislamiento físico y social.»</p>
+        </div>
+        <div class="tarjeta naranja">
+          <h3>Qué pedimos</h3>
+          <ul>
+            <li>Recuperar y regularizar un <strong>paso peatonal a nivel</strong> entre los dos lados del pueblo.</li>
+            <li>Con medidas modernas de seguridad: señales, semáforos, barreras…</li>
+            <li>Con <strong>accesibilidad universal</strong>, también para personas con diversidad funcional.</li>
+            <li>Que no se divida el pueblo sin ofrecer antes una alternativa real.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top:48px">Lo que hemos hecho</h3>
+      <ol class="cronologia">
+        <li><time datetime="2024-12-24">24 de diciembre de 2024</time>FGV cierra el paso peatonal de la estación.</li>
+        <li><time datetime="2025-03-01">1 de marzo de 2025</time>Nace la Asociación Vecinal Entrevies.</li>
+        <li><time datetime="2025-03">Marzo de 2025</time>Recogida de firmas y escrito dirigido a FGV.</li>
+        <li><time datetime="2026-04-04">4 de abril de 2026</time>Concentración en el parking de la estación: «Por un pueblo conectado y sin barreras».</li>
+        <li><time datetime="2026-07">Julio de 2026</time>Escrito al Ayuntamiento sobre el proyecto de FGV para el paso a nivel.</li>
+        <li><time>Hoy</time>Seguimos en reuniones con el Ayuntamiento y otros organismos. Te contamos las novedades en nuestras redes.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BARRIOS -->
+  <section id="barrios" class="alt">
+    <div class="contenedor">
+      <h2>Barrios con los mismos servicios que el resto</h2>
+      <p class="intro">Nuestras urbanizaciones no tienen ni un parque ni una zona ajardinada donde descansar, reunirse o pasear. Pedimos los mismos espacios y servicios que tiene el resto del pueblo.</p>
+      <ul class="barrios" aria-label="Zonas">
+        <li>l'Estació</li><li>Montepilar</li><li>Montealegre</li><li>Pinaeta del Sel</li><li>Y otras urbanizaciones</li>
+      </ul>
+
+      <div class="rejilla">
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="M8 11a4 4 0 1 1 8 0c0 2.2-1.8 4-4 4s-4-1.8-4-4Z"/><path d="M12 7V2"/><path d="M4 22h16"/></svg></div>
+          <h3>Parques y zonas verdes</h3>
+          <p>Un parque o una zona ajardinada donde descansar, reunirse y pasear cerca de casa.</p>
+        </article>
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <h3>Espacios para jóvenes</h3>
+          <p>Canchas de baloncesto, pistas de tenis y lugares de ocio donde la juventud pueda quedar y hacer deporte.</p>
+        </article>
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2"/><circle cx="10" cy="5.5" r="2"/><circle cx="14" cy="5.5" r="2"/><circle cx="18" cy="9" r="2"/><path d="M12 11c-3 0-6 4-6 7 0 1.7 1.5 2.5 3 2 1-.3 2-.8 3-.8s2 .5 3 .8c1.5.5 3-.3 3-2 0-3-3-7-6-7Z"/></svg></div>
+          <h3>Zonas para perros</h3>
+          <p>Espacios vallados donde los perros puedan correr y que ayuden a mantener limpias las calles.</p>
+        </article>
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4" r="2"/><path d="M10 7v6h5l2 6"/><path d="M14 18a5 5 0 1 1-6-6"/></svg></div>
+          <h3>Aceras accesibles</h3>
+          <p>Aceras continuas y pasos de peatones rebajados para sillas de ruedas, carritos y personas mayores.</p>
+        </article>
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/></svg></div>
+          <h3>Calles seguras</h3>
+          <p>Buena iluminación, cruces seguros y rutas a pie que no obliguen a dar largos rodeos.</p>
+        </article>
+        <article class="reiv">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+          <h3>Servicios cercanos</h3>
+          <p>Que nuestros barrios tengan la misma calidad de vida y los mismos servicios que el resto de l'Eliana.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES -->
+  <section id="actividades">
+    <div class="contenedor">
+      <h2>Nuestras actividades</h2>
+      <p class="intro">Lo que hacemos durante el año para defender nuestros barrios. Las convocatorias y novedades las publicamos primero en nuestras redes.</p>
+      <div class="rejilla" style="margin-top:32px">
+        <article class="actividad"><div class="cab">Campaña</div><div class="cuerpo"><h3>Por el paso a nivel</h3><p>Recogida de firmas, escritos a FGV y al Ayuntamiento y seguimiento del proyecto para recuperar el paso.</p></div></article>
+        <article class="actividad"><div class="cab">Movilización</div><div class="cuerpo"><h3>Concentraciones</h3><p>Nos reunimos para que se nos escuche, como la concentración del 4 de abril de 2026 en la estación.</p></div></article>
+        <article class="actividad"><div class="cab">Participación</div><div class="cuerpo"><h3>Alegaciones y propuestas</h3><p>Presentamos aportaciones a normas municipales, como la ordenanza de accesibilidad.</p></div></article>
+        <article class="actividad"><div class="cab">Diálogo</div><div class="cuerpo"><h3>Reuniones y consejos</h3><p>Nos reunimos con el Ayuntamiento y otros organismos y participamos en los consejos de participación municipales.</p></div></article>
+        <article class="actividad"><div class="cab">Información</div><div class="cuerpo"><h3>Boletín vecinal</h3><p>Publicamos boletines y hojas informativas en castellano, valenciano y lectura fácil.</p></div></article>
+        <article class="actividad"><div class="cab">Vida asociativa</div><div class="cuerpo"><h3>Asambleas</h3><p>Reuniones abiertas a socias y socios para decidir juntos las prioridades de la asociación.</p></div></article>
+      </div>
+      <div class="redes">
+        <div>
+          <h3>Síguenos en redes: @entreviesleliana</h3>
+          <p>Fotos, convocatorias y novedades de cada actividad.</p>
+        </div>
+        <div class="botones-redes">
+          <a class="red fb" data-red="facebook" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1Z"/></svg>Facebook</a>
+          <a class="red ig" data-red="instagram" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM12 2c-2.7 0-3 0-4.1.1C4.3 2.3 2.3 4.3 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.2 3.6 2.2 5.6 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.6-.2 5.6-2.2 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1c-.2-3.6-2.2-5.6-5.8-5.8C15 2 14.7 2 12 2Zm0 1.8c2.7 0 3 0 4 .1 2.7.1 4 1.4 4.1 4.1.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 4-4.1 4.1-1 .1-1.3.1-4 .1s-3 0-4-.1C5.3 20 4 18.7 3.9 16c-.1-1-.1-1.3-.1-4s0-3 .1-4C4 5.3 5.3 4 8 3.9c1 0 1.3-.1 4-.1Z"/></svg>Instagram</a>
+          <a class="red tt" data-red="tiktok" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6.3 6.3 0 1 0 5.4 6.2V8.6a8 8 0 0 0 4.4 1.3V6.5a4.4 4.4 0 0 1-4.4-4.5Z"/></svg>TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICIAS -->
+  <section id="noticias" class="alt">
+    <div class="contenedor">
+      <h2>Noticias del pueblo</h2>
+      <p class="intro">Lo que pasa en l'Eliana y nos afecta como vecinas y vecinos: obras, plenos, ayudas, actos y novedades de la asociación.</p>
+      <div class="compromiso">
+        <strong>Información contrastada, sin bulos.</strong> Solo publicamos noticias con su fuente y su fecha: el Ayuntamiento, el boletín oficial, FGV, medios de comunicación o documentos de la propia asociación. Si ves un error, <a href="#escribenos">avísanos</a> y lo corregimos indicando la fecha de la corrección.
+      </div>
+      <div class="noticias" id="lista-noticias"></div>
+
+      <h3 style="margin-top:48px">L'Eliana en la prensa local</h3>
+      <p class="aviso">Titulares de <a href="https://www.infoturia.com/category/l-eliana" target="_blank" rel="noopener">InfoTúria</a>, periódico gratuito del Camp de Túria. Se actualizan solos.</p>
+      <div class="noticias" id="lista-prensa" style="margin-top:16px"></div>
+      <p class="nota-fuente">Más información municipal en la <a href="https://www.leliana.es/va/noticies" target="_blank" rel="noopener">web del Ayuntamiento de l'Eliana</a> y en su <a href="https://www.leliana.es/va/noticia/agenda-cultural" target="_blank" rel="noopener">agenda cultural</a>.</p>
+    </div>
+  </section>
+
+  <!-- VÍDEOS -->
+  <section id="videos">
+    <div class="contenedor">
+      <h2>Vídeos</h2>
+      <p class="intro">Reportajes, entrevistas y vídeos de nuestras actividades, de YouTube, Instagram, TikTok y Facebook.</p>
+      <div class="noticias" id="lista-videos"></div>
+      <p class="aviso" style="margin-top:16px">Para proteger tu privacidad, cada vídeo solo se carga desde la red social cuando pulsas sobre él.</p>
+      <div class="redes" style="margin-top:24px">
+        <div><h3>Más vídeos de l'Eliana</h3><p>Canales del Ayuntamiento y de la prensa local.</p></div>
+        <div class="botones-redes" id="canales-video"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS DE L'ELIANA -->
+  <section id="recursos" class="alt">
+    <div class="contenedor">
+      <h2>Recursos de l'Eliana</h2>
+      <p class="intro">Servicios y trámites gratuitos del municipio, en un solo sitio. Todos los enlaces llevan a las webs oficiales.</p>
+      <div class="rejilla" id="lista-recursos" style="margin-top:32px"></div>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="somos">
+    <div class="contenedor dos-col">
+      <div>
+        <h2>Quiénes somos</h2>
+        <p>Somos vecinas y vecinos de l'Estació, Montepilar, Montealegre y alrededores. Nos unimos para tener <strong>una sola voz</strong> ante las administraciones y las empresas, y para defender una movilidad segura y accesible para todas las personas.</p>
+        <p>Somos una asociación sin ánimo de lucro, inscrita en el registro de asociaciones, y formamos parte de los consejos de participación del municipio.</p>
+      </div>
+      <div class="tarjeta verde">
+        <h3>En qué participamos</h3>
+        <ul>
+          <li>Reuniones y seguimiento con el Ayuntamiento y otros organismos.</li>
+          <li>Propuestas y alegaciones, como las de la ordenanza municipal de accesibilidad.</li>
+          <li>Información vecinal, recogida de apoyos y colaboración entre barrios.</li>
+          <li>Recogemos lo que nos contáis: barreras, rutas inseguras e ideas de mejora.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor">
+      <div class="datos">
+        <div class="dato"><b>2025</b>constituida el 1 de marzo</div>
+        <div class="dato"><b>10 €</b>cuota anual por persona</div>
+        <div class="dato"><b>1 voz</b>para todos nuestros barrios</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICACIONES -->
+  <section id="publicaciones" class="alt">
+    <div class="contenedor">
+      <h2>Publicaciones</h2>
+      <p class="intro">Boletines, comunicados y hojas informativas de la asociación. Muchas están en castellano, en valenciano y en lectura fácil.</p>
+      <div class="opciones" id="filtro-publicaciones" role="group" aria-label="Filtrar publicaciones" style="margin-top:24px"></div>
+      <div class="noticias" id="lista-publicaciones"></div>
+    </div>
+  </section>
+
+  <!-- REUNIONES -->
+  <section id="reuniones">
+    <div class="contenedor">
+      <h2>Reuniones</h2>
+      <p class="intro">Convocatorias de asambleas y reuniones, y lo que se trató y acordó en las anteriores.</p>
+      <h3 style="margin-top:32px">Próximas reuniones</h3>
+      <div class="noticias" id="lista-proximas" style="margin-top:16px"></div>
+      <h3 style="margin-top:40px">Reuniones anteriores</h3>
+      <div class="noticias" id="lista-anteriores" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCIA -->
+  <section id="transparencia" class="alt">
+    <div class="contenedor">
+      <h2>Transparencia</h2>
+      <p class="intro">Documentos de la asociación a disposición de cualquier persona: estatutos, inscripción en el registro, cuentas, memoria de actividades y subvenciones.</p>
+      <div class="noticias" id="lista-documentos"></div>
+    </div>
+  </section>
+
+  <!-- ESCRÍBENOS -->
+  <section id="escribenos">
+    <div class="contenedor dos-col">
+      <div>
+        <h2>Escríbenos</h2>
+        <p class="intro">¿Quieres pedir una mejora para tu calle, proponer una actividad o hacernos una pregunta? Cuéntanoslo aquí.</p>
+        <div class="tarjeta naranja" style="margin-top:24px">
+          <h3>Para que podamos ayudarte</h3>
+          <ul>
+            <li>Indica la calle o el lugar exacto.</li>
+            <li>Si es un problema, di cuándo ocurre y a quién afecta.</li>
+            <li>Puedes adjuntar fotos en el correo que se abrirá.</li>
+          </ul>
+        </div>
+        <p style="margin-top:20px">¿Necesitas la información en lectura fácil, en valenciano o en otro formato accesible? Pídenoslo.</p>
+      </div>
+      <form class="formulario" id="form-contacto" novalidate style="border:1px solid var(--borde)">
+        <fieldset class="campo">
+          <legend>¿Qué quieres enviarnos?</legend>
+          <div class="opciones">
+            <label><input type="radio" name="tipo" value="Reivindicación" checked> Una reivindicación</label>
+            <label><input type="radio" name="tipo" value="Propuesta de actividad"> Una actividad</label>
+            <label><input type="radio" name="tipo" value="Pregunta"> Una pregunta</label>
+          </div>
+        </fieldset>
+        <div class="fila">
+          <div class="campo"><label for="c-nombre">Nombre</label><input type="text" id="c-nombre" name="nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="c-barrio">Barrio o urbanización <span class="ayuda">(opcional)</span></label>
+            <select id="c-barrio" name="barrio">
+              <option value="">—</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Sel</option><option>Otra zona de l'Eliana</option>
+            </select>
+          </div>
+        </div>
+        <div class="campo"><label for="c-asunto">Asunto</label><input type="text" id="c-asunto" name="asunto" required placeholder="Ej.: Acera sin rebajar en la calle…"></div>
+        <div class="campo"><label for="c-mensaje">Mensaje</label><textarea id="c-mensaje" name="mensaje" required></textarea></div>
+        <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="#privacidad">información sobre protección de datos</a>.</span></label>
+        <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit">Enviar mensaje</button>
+        <p class="estado" role="status" aria-live="polite"></p>
+        <p class="aviso">Al pulsar «Enviar» se abrirá tu programa de correo con el mensaje ya escrito; solo tienes que enviarlo. Así te respondemos directamente a ti.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- HAZTE SOCIA/O -->
+  <section id="socios" class="participa">
+    <div class="contenedor socios-grid">
+      <div>
+        <h2>Hazte socia o socio</h2>
+        <p class="intro">Cuantas más personas seamos, más difícil será que ignoren nuestras reivindicaciones.</p>
+        <ul>
+          <li><strong>Cuota: 10 € al año</strong> por persona.</li>
+          <li>Participas en las asambleas y decides con nosotros las prioridades.</li>
+          <li>Recibes las convocatorias y el boletín.</li>
+        </ul>
+        <p>Rellena estos datos. Te responderemos por correo con la bienvenida y el formulario para completar el alta.</p>
+      </div>
+      <form class="formulario" id="form-socios" novalidate>
+        <div class="fila">
+          <div class="campo"><label for="s-nombre">Nombre y apellidos</label><input type="text" id="s-nombre" name="nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="s-tel">Teléfono <span class="ayuda">(opcional)</span></label><input type="tel" id="s-tel" name="telefono" autocomplete="tel"></div>
+        </div>
+        <div class="campo"><label for="s-barrio">Barrio o urbanización</label>
+          <select id="s-barrio" name="barrio" required>
+            <option value="">Elige una opción</option><option>l'Estació</option><option>Montepilar</option><option>Montealegre</option><option>Pinaeta del Sel</option><option>Otra zona de l'Eliana</option><option>No vivo en l'Eliana</option>
+          </select>
+        </div>
+        <div class="campo"><label for="s-com">¿Quieres comentarnos algo? <span class="ayuda">(opcional)</span></label><textarea id="s-com" name="comentario" style="min-height:90px"></textarea></div>
+        <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="#privacidad">información sobre protección de datos</a>.</span></label>
+        <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit">Quiero hacerme socia/o</button>
+        <p class="estado" role="status" aria-live="polite"></p>
+        <p class="aviso">Se abrirá tu programa de correo con la solicitud ya escrita para que la envíes desde tu dirección.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROTECCIÓN DE DATOS -->
+  <section id="privacidad" style="padding:40px 0">
+    <div class="contenedor">
+      <h3>Información básica sobre protección de datos</h3>
+      <p class="aviso" style="max-width:90ch">Responsable: Asociación Vecinal Entrevies de l'Eliana, entreviesleliana@gmail.com. Finalidad: responder a tu mensaje y, si lo pides, gestionar tu alta como socia o socio. Base jurídica: tu consentimiento y, en su caso, la relación asociativa. No cedemos tus datos a terceros salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación, supresión y demás escribiendo a entreviesleliana@gmail.com.</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="via verde" aria-hidden="true"></div>
+<footer>
+  <div class="contenedor">
+    <div class="izq">
+      <img class="logo-pie" src="img/logo_entrevies.jpg" alt="Logo de Entrevies l'Eliana">
+      <div>
+        <strong style="color:#fff">Asociación Vecinal Entrevies</strong><br>
+        Barrios de l'Estació, Montepilar, Montealegre y alrededores · l'Eliana (València)
+      </div>
+    </div>
+    <div>
+      <a href="mailto:entreviesleliana@gmail.com">entreviesleliana@gmail.com</a><br>
+      Redes: @entreviesleliana
+    </div>
+  </div>
+</footer>
+
+<script src="contenido.js"></script>
+<script>
+  var CORREO = 'entreviesleliana@gmail.com';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function fecha(iso) {
+    if (!iso) return '';
+    var p = iso.split('-'), meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    return (p[2] ? +p[2] + ' de ' : '') + meses[+p[1] - 1] + ' de ' + p[0];
+  }
+  function porFecha(a, b) { return (b.fecha || '').localeCompare(a.fecha || ''); }
+  function enlaces(lista) {
+    return (lista || []).map(function (e) { return '<a class="mas" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.texto) + ' →</a>'; }).join(' ');
+  }
+  function tarjeta(item, cat, claseCat) {
+    return '<article class="noticia"><div class="meta">' +
+      (cat ? '<span class="cat ' + (claseCat || '') + '">' + esc(cat) + '</span>' : '') +
+      (item.fecha ? '<time datetime="' + esc(item.fecha) + '">' + fecha(item.fecha) + '</time>' : '') +
+      '</div><h3>' + esc(item.titulo) + '</h3>' + (item.resumen ? '<p>' + esc(item.resumen) + '</p>' : '') +
+      (item.fuente ? '<p class="fuente">Fuente: ' + (item.fuente.url ? '<a href="' + esc(item.fuente.url) + '" target="_blank" rel="noopener">' + esc(item.fuente.nombre) + '</a>' : esc(item.fuente.nombre)) + '</p>' : '') +
+      '<div>' + enlaces(item.enlaces) + '</div></article>';
+  }
+
+  // Redes sociales
+  document.querySelectorAll('[data-red]').forEach(function (a) {
+    var url = (window.REDES || {})[a.dataset.red];
+    if (url) a.href = url; else a.style.display = 'none';
+  });
+
+  // Noticias
+  (function () {
+    var cont = document.getElementById('lista-noticias');
+    // Sin fuente no se publica: así evitamos difundir rumores.
+    var lista = (window.NOTICIAS || []).filter(function (n) { return n.fuente && n.fuente.nombre; }).sort(porFecha);
+    cont.innerHTML = lista.length ? lista.map(function (n) {
+      return tarjeta(n, n.categoria, n.categoria === 'Asociación' ? '' : 'pueblo');
+    }).join('') : '<p>Pronto publicaremos aquí las noticias.</p>';
+  })();
+
+  // Prensa local en directo (canales RSS). Si falla, se muestran enlaces a los periódicos.
+  (function () {
+    var cont = document.getElementById('lista-prensa');
+    var feeds = window.PRENSA_RSS || [];
+    if (!feeds.length) { cont.style.display = 'none'; return; }
+    cont.innerHTML = '<p>Cargando titulares…</p>';
+    Promise.all(feeds.map(function (f) {
+      return fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(f.rss))
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          return (j.items || []).map(function (i) {
+            return { fecha: (i.pubDate || '').slice(0, 10), titulo: i.title, medio: f.nombre, url: i.link,
+              resumen: (i.description || '').replace(/<[^>]+>/g, ' ').replace(/La entrada .*$/s, '').replace(/&#?\w+;/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 160) };
+          });
+        }).catch(function () { return []; });
+    })).then(function (listas) {
+      // Filtro antispam: descarta titulares con palabras típicas de webs hackeadas
+      var bloqueo = window.PALABRAS_BLOQUEADAS || [];
+      var items = [].concat.apply([], listas).filter(function (i) {
+        var t = (i.titulo + ' ' + i.resumen).toLowerCase();
+        return !bloqueo.some(function (p) { return t.indexOf(p) >= 0; });
+      }).sort(porFecha).slice(0, 6);
+      if (!items.length) {
+        cont.innerHTML = '<p>No se han podido cargar los titulares ahora mismo. Puedes leerlos en ' +
+          feeds.map(function (f) { return '<a href="' + esc(f.web) + '" target="_blank" rel="noopener">' + esc(f.nombre) + '</a>'; }).join(', ') + '.</p>';
+        return;
+      }
+      cont.innerHTML = items.map(function (i) {
+        return tarjeta({ fecha: i.fecha, titulo: i.titulo, resumen: i.resumen, fuente: { nombre: i.medio, url: i.url },
+          enlaces: [{ texto: 'Leer la noticia', url: i.url }] }, i.medio, 'pueblo');
+      }).join('');
+    });
+  })();
+
+  // Vídeos: se cargan solo al pulsar (privacidad)
+  (function () {
+    function embed(url) {
+      var m;
+      if ((m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/)))
+        return { red: 'YouTube', src: 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1', img: 'https://i.ytimg.com/vi/' + m[1] + '/hqdefault.jpg' };
+      if ((m = url.match(/instagram\.com\/(?:p|reel|tv)\/([\w-]+)/)))
+        return { red: 'Instagram', src: 'https://www.instagram.com/p/' + m[1] + '/embed', vertical: true };
+      if ((m = url.match(/tiktok\.com\/.*\/video\/(\d+)/)))
+        return { red: 'TikTok', src: 'https://www.tiktok.com/embed/v2/' + m[1], vertical: true };
+      if (/facebook\.com|fb\.watch/.test(url))
+        return { red: 'Facebook', src: 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(url) + '&show_text=false' };
+      return null;
+    }
+    var cont = document.getElementById('lista-videos');
+    var lista = (window.VIDEOS || []).slice().sort(porFecha);
+    cont.innerHTML = lista.length ? lista.map(function (v, n) {
+      var e = embed(v.url);
+      if (!e) return '';
+      return '<article class="noticia video"><div class="marco' + (e.vertical ? ' vertical' : '') + '">' +
+        '<button class="cargar" data-n="' + n + '" style="' + (e.img ? 'background-image:url(' + e.img + ')' : '') + '" aria-label="Reproducir: ' + esc(v.titulo) + '">' +
+        '<span><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Ver en ' + e.red + '</span></button></div>' +
+        '<div class="texto"><div class="meta"><span class="cat">' + e.red + '</span>' + (v.fecha ? '<time datetime="' + esc(v.fecha) + '">' + fecha(v.fecha) + '</time>' : '') + '</div>' +
+        '<h3>' + esc(v.titulo) + '</h3>' + (v.fuente ? '<p class="fuente">Autoría: ' + esc(v.fuente) + '</p>' : '') + '</div></article>';
+    }).join('') : '<p>Pronto añadiremos vídeos. Mientras, puedes ver los canales de abajo.</p>';
+    cont.addEventListener('click', function (ev) {
+      var b = ev.target.closest('.cargar'); if (!b) return;
+      var e = embed(lista[+b.dataset.n].url);
+      b.outerHTML = '<iframe src="' + e.src + '" title="' + esc(lista[+b.dataset.n].titulo) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
+    });
+    document.getElementById('canales-video').innerHTML = (window.CANALES_VIDEO || []).map(function (c) {
+      return '<a class="red ' + esc(c.clase || 'yt') + '" href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.nombre) + '</a>';
+    }).join('');
+  })();
+
+  // Recursos de l'Eliana
+  (function () {
+    document.getElementById('lista-recursos').innerHTML = (window.RECURSOS || []).map(function (g) {
+      return '<article class="reiv recurso"><h3>' + esc(g.grupo) + '</h3><ul>' + g.enlaces.map(function (e) {
+        return '<li><a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.texto) + '</a></li>';
+      }).join('') + '</ul></article>';
+    }).join('');
+  })();
+
+  // Publicaciones con filtro por tipo
+  (function () {
+    var cont = document.getElementById('lista-publicaciones'), filtro = document.getElementById('filtro-publicaciones');
+    var lista = (window.PUBLICACIONES || []).slice().sort(porFecha);
+    var tipos = ['Todas'].concat(lista.map(function (p) { return p.tipo; }).filter(function (t, i, a) { return t && a.indexOf(t) === i; }));
+    filtro.innerHTML = tipos.map(function (t, i) {
+      return '<label><input type="radio" name="filtro-pub" value="' + esc(t) + '"' + (i ? '' : ' checked') + '> ' + esc(t) + '</label>';
+    }).join('');
+    function pintar(t) {
+      cont.innerHTML = lista.filter(function (p) { return t === 'Todas' || p.tipo === t; })
+        .map(function (p) { return tarjeta(p, p.tipo); }).join('');
+    }
+    filtro.addEventListener('change', function (e) { pintar(e.target.value); });
+    pintar('Todas');
+  })();
+
+  // Reuniones: se separan solas en próximas y anteriores según la fecha
+  (function () {
+    var hoy = new Date().toISOString().slice(0, 10);
+    var todas = window.REUNIONES || [];
+    function ficha(r) {
+      var item = { titulo: r.titulo, fecha: r.fecha, enlaces: r.enlaces,
+        resumen: [r.hora && ('Hora: ' + r.hora), r.lugar && ('Lugar: ' + r.lugar), r.resumen].filter(Boolean).join(' · ') };
+      return tarjeta(item, r.tipo);
+    }
+    var prox = todas.filter(function (r) { return r.fecha >= hoy; }).sort(function (a, b) { return a.fecha.localeCompare(b.fecha); });
+    var ant = todas.filter(function (r) { return r.fecha < hoy; }).sort(porFecha);
+    document.getElementById('lista-proximas').innerHTML = prox.length ? prox.map(ficha).join('') : '<p>Ahora mismo no hay ninguna reunión convocada. Las anunciaremos aquí y en redes.</p>';
+    document.getElementById('lista-anteriores').innerHTML = ant.length ? ant.map(ficha).join('') : '<p>Todavía no hay resúmenes publicados.</p>';
+  })();
+
+  // Documentos de transparencia
+  (function () {
+    var cont = document.getElementById('lista-documentos');
+    cont.innerHTML = (window.DOCUMENTOS || []).map(function (d) {
+      var item = { titulo: d.titulo, resumen: d.resumen, fecha: d.fecha, enlaces: d.enlaces };
+      if (!d.enlaces || !d.enlaces.length) item.resumen = (d.resumen ? d.resumen + ' ' : '') + 'Disponible próximamente.';
+      return tarjeta(item, d.grupo, 'pueblo');
+    }).join('');
+  })();
+
+  // Formularios: abren el correo con el mensaje ya escrito.
+  // Los asuntos encajan con la clasificación automática del correo de la asociación.
+  function enviarPorCorreo(form, asunto, cuerpo) {
+    var estado = form.querySelector('.estado');
+    // Trampa antibots: este campo está oculto; si viene relleno, es un robot y no se envía nada.
+    if (form.web && form.web.value) return;
+    var invalido = Array.prototype.find.call(form.querySelectorAll('[required]'), function (c) {
+      return c.type === 'checkbox' ? !c.checked : !c.value.trim();
+    });
+    if (invalido) {
+      estado.textContent = invalido.type === 'checkbox' ? 'Marca la casilla de protección de datos para continuar.' : 'Falta rellenar algún campo obligatorio.';
+      estado.classList.add('visible'); invalido.focus(); return;
+    }
+    window.location.href = 'mailto:' + CORREO + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+    estado.textContent = 'Se ha abierto tu correo con el mensaje preparado. Revísalo y pulsa «Enviar». Si no se abre, escríbenos a ' + CORREO + '.';
+    estado.classList.add('visible');
+  }
+  document.getElementById('form-contacto').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, tipo = f.tipo.value;
+    enviarPorCorreo(f, tipo + ': ' + f.asunto.value.trim(),
+      'Tipo: ' + tipo + '\nNombre: ' + f.nombre.value.trim() + '\nBarrio: ' + (f.barrio.value || '-') +
+      '\n\n' + f.mensaje.value.trim() + '\n\n(Enviado desde la web de Entrevies)');
+  });
+  document.getElementById('form-socios').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    enviarPorCorreo(f, 'Quiero hacerme socia/o - ' + f.nombre.value.trim(),
+      'Hola:\n\nQuiero hacerme socia/o de la Asociación Vecinal Entrevies.\n\nNombre: ' + f.nombre.value.trim() +
+      '\nTeléfono: ' + (f.telefono.value.trim() || '-') + '\nBarrio: ' + f.barrio.value +
+      (f.comentario.value.trim() ? '\n\nComentario: ' + f.comentario.value.trim() : '') + '\n\n(Enviado desde la web de Entrevies)');
+  });
+
+  // Días desde el cierre (24-12-2024)
+  (function () {
+    var cierre = new Date(2024, 11, 24);
+    var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    var dias = Math.floor((hoy - cierre) / 86400000);
+    document.getElementById('dias').textContent = dias.toLocaleString('es-ES');
+  })();
+  // Menú en móvil
+  (function () {
+    var b = document.querySelector('.menu-toggle'), n = document.getElementById('menu');
+    b.addEventListener('click', function () {
+      var abierto = n.classList.toggle('abierto');
+      b.setAttribute('aria-expanded', abierto);
+    });
+    n.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { n.classList.remove('abierto'); b.setAttribute('aria-expanded', false); }
+    });
+  })();
+</script>
+</body>
+</html>
