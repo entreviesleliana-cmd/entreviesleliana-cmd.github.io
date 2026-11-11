@@ -66,6 +66,8 @@ window.TEXTOS = {
     hero_b1: "Uneix-te a l'associació", hero_b2: 'Què ha passat',
     cont_que: 'dies amb el pas tancat', cont_desde: 'des del 24 de desembre de 2024',
     cont_siglo: '+130 anys', cont_siglo_txt: 'de pas entre els dos costats del poble',
+    cont_acc: '0 accidents', cont_acc_txt: 'documentats en més de 130 anys',
+    cont_acc_fuente: "Segons l'Ajuntament de l'Eliana, en el Dictamen 793/2025 del Consell Jurídic Consultiu (19-11-2025)",
 
     paso_h2: "El pas a nivell de l'estació",
     paso_intro: "És la nostra principal reivindicació. El pas uneix els barris de l'Estació, Montepilar i Montealegre amb la resta de l'Eliana.",
@@ -206,6 +208,8 @@ window.TEXTOS = {
     hero_b1: 'Join the association', hero_b2: 'What happened',
     cont_que: 'days with the crossing closed', cont_desde: 'since 24 December 2024',
     cont_siglo: '130+ years', cont_siglo_txt: 'of crossing between the two sides of the town',
+    cont_acc: '0 accidents', cont_acc_txt: 'on record in over 130 years',
+    cont_acc_fuente: "According to l'Eliana Town Council, in Opinion 793/2025 of the Consell Jurídic Consultiu (19-11-2025)",
 
     paso_h2: 'The station level crossing',
     paso_intro: "This is our main demand. The crossing connects the neighbourhoods of l'Estació, Montepilar and Montealegre with the rest of l'Eliana.",
