@@ -135,6 +135,8 @@
   /* Secciones */
   section { padding: 48px 0; } /* antes 72px: espacio entre apartados reducido el 11-11-2026 a petición de Katja */
   section.alt { background: var(--fondo-alt); }
+  /* Campo trampa antibots: invisible y fuera del teclado, pero con su etiqueta (WAVE lo pedía) */
+  .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   /* Al saltar a un apartado desde el menú, que la barra fija de arriba no tape el título.
      En rem para que crezca con la letra grande, igual que la barra. */
   html { scroll-padding-top: 5.75rem; }
@@ -777,7 +779,7 @@
         <div class="campo"><label for="c-asunto" data-i18n="f_asunto">Asunto</label><input type="text" id="c-asunto" name="asunto" required placeholder="Ej.: Acera sin rebajar en la calle…" data-i18n-attr="placeholder:f_asunto_ph"></div>
         <div class="campo"><label for="c-mensaje" data-i18n="f_mensaje">Mensaje</label><textarea id="c-mensaje" name="mensaje" required></textarea></div>
         <label class="check"><input type="checkbox" name="privacidad" required> <span data-i18n="f_priv">He leído la <a href="#privacidad">información sobre protección de datos</a>.</span></label>
-        <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <div class="trampa" aria-hidden="true"><label for="c-web">Deja este campo vacío</label><input type="text" id="c-web" name="web" tabindex="-1" autocomplete="off"></div>
         <button type="submit" data-i18n="f_enviar">Enviar mensaje</button>
         <p class="estado" role="status" aria-live="polite"></p>
         <p class="aviso" data-i18n="f_aviso">Al pulsar «Enviar» se abrirá tu programa de correo con el mensaje ya escrito; solo tienes que enviarlo. Si no se abre ninguno, escríbenos a entreviesleliana@gmail.com.</p>
@@ -821,7 +823,7 @@
         </div>
         <div class="campo"><label for="s-com"><span data-i18n="s_com">¿Quieres comentarnos algo?</span> <span class="ayuda" data-i18n="f_opcional">(opcional)</span></label><textarea id="s-com" name="comentario" style="min-height:90px"></textarea></div>
         <label class="check"><input type="checkbox" name="privacidad" required> <span data-i18n="f_priv">He leído la <a href="#privacidad">información sobre protección de datos</a>.</span></label>
-        <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <div class="trampa" aria-hidden="true"><label for="s-web">Deja este campo vacío</label><input type="text" id="s-web" name="web" tabindex="-1" autocomplete="off"></div>
         <button type="submit" data-i18n="s_boton">Quiero hacerme socia/o</button>
         <p class="estado" role="status" aria-live="polite"></p>
         <p class="aviso" data-i18n="s_aviso">Se abrirá tu programa de correo con la solicitud ya escrita para que la envíes desde tu dirección.</p>
