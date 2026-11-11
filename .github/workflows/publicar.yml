@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Comprobar que contenido.js no tiene errores
-        run: node --check contenido.js
+        run: node --check contenido.js && node --check idiomas.js && node --check web.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
