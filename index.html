@@ -133,8 +133,11 @@
   .contador .fuente-cont { color: var(--texto-suave); font-size: .875rem; margin-top: 8px; line-height: 1.4; }
 
   /* Secciones */
-  section { padding: 72px 0; }
+  section { padding: 48px 0; } /* antes 72px: espacio entre apartados reducido el 11-11-2026 a petición de Katja */
   section.alt { background: var(--fondo-alt); }
+  /* Al saltar a un apartado desde el menú, que la barra fija de arriba no tape el título.
+     En rem para que crezca con la letra grande, igual que la barra. */
+  html { scroll-padding-top: 5.75rem; }
   .intro { max-width: 70ch; color: var(--texto-suave); font-size: 1.2rem; }
 
   .dos-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
@@ -415,7 +418,7 @@
     body { font-size: 1.0625rem; }
     .rejilla, .pasos, .datos, .noticias, .formulario .fila { grid-template-columns: 1fr; }
     .formulario { padding: 20px; }
-    section { padding: 52px 0; }
+    section { padding: 40px 0; }
     .portada .contenedor { padding-top: 40px; padding-bottom: 48px; }
     .marca span { display: none; }
   }
