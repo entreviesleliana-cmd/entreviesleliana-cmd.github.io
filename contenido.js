@@ -18,6 +18,11 @@ window.REDES = {
   // Si alguna red no existe, borra su línea y el botón desaparece.
 };
 
+/* ---------- FORMULARIO DE ALTA DE SOCIOS ----------
+   Enlace del formulario de Google que crea la automatización del correo (crearFormularioAlta).
+   Mientras esté vacío, la web ofrece el alta por correo. Ejemplo: 'https://forms.gle/AbCdEf123' */
+window.ENLACE_FORMULARIO_ALTA = 'https://forms.gle/yjjYoyd16aUYLde99';
+
 /* ---------- NOTICIAS DEL PUEBLO ----------
    categoria: 'Asociación' (naranja) o cualquier otra palabra, p. ej. 'Pueblo', 'Obras', 'Pleno' (verde)
    fuente: OBLIGATORIA. Una noticia sin fuente NO se publica (la web la oculta sola).

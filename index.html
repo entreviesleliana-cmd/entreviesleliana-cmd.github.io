@@ -339,7 +339,7 @@
         <li><a href="#recursos">Recursos</a></li>
         <li><a href="#somos">Quiénes somos</a></li>
         <li><a href="#transparencia">Transparencia</a></li>
-        <li><a href="#escribenos">Escríbenos</a></li>
+        <li><a href="#escribenos">Cuéntanos</a></li>
         <li><a href="#socios" class="boton-nav">Hazte socia/o</a></li>
       </ul>
     </nav>
@@ -581,8 +581,8 @@
   <section id="escribenos">
     <div class="contenedor dos-col">
       <div>
-        <h2>Escríbenos</h2>
-        <p class="intro">¿Quieres pedir una mejora para tu calle, proponer una actividad o hacernos una pregunta? Cuéntanoslo aquí.</p>
+        <h2>¿Necesitas contarnos algo?</h2>
+        <p class="intro"><strong>Este es el lugar.</strong> Cuéntanos qué necesitas tu calle o tu barrio, escríbenos tus propuestas, propón una actividad o pregúntanos lo que quieras. Leemos todos los mensajes y te respondemos.</p>
         <div class="tarjeta naranja" style="margin-top:24px">
           <h3>Para que podamos ayudarte</h3>
           <ul>
@@ -598,7 +598,8 @@
           <legend>¿Qué quieres enviarnos?</legend>
           <div class="opciones">
             <label><input type="radio" name="tipo" value="Reivindicación" checked> Una reivindicación</label>
-            <label><input type="radio" name="tipo" value="Propuesta de actividad"> Una actividad</label>
+            <label><input type="radio" name="tipo" value="Propuesta"> Una propuesta</label>
+            <label><input type="radio" name="tipo" value="Actividad"> Una actividad</label>
             <label><input type="radio" name="tipo" value="Pregunta"> Una pregunta</label>
           </div>
         </fieldset>
@@ -632,8 +633,17 @@
           <li>Participas en las asambleas y decides con nosotros las prioridades.</li>
           <li>Recibes las convocatorias y el boletín.</li>
         </ul>
-        <p>Rellena estos datos. Te responderemos por correo con la bienvenida y el formulario para completar el alta.</p>
       </div>
+      <div>
+      <div class="formulario" id="alta-directa">
+        <h3 style="margin:0">Formulario de alta</h3>
+        <p style="margin:0">Solo son 2 minutos. Tus datos van directamente al registro de socios de la asociación, protegido y solo accesible para la Junta Directiva. <strong>No se guardan en esta web.</strong></p>
+        <a class="boton principal" id="enlace-alta" href="#" target="_blank" rel="noopener" style="justify-self:start">Rellenar el formulario de alta</a>
+        <p class="aviso">Al enviarlo recibirás un correo de confirmación.</p>
+      </div>
+      <details id="alta-correo" style="margin-top:16px">
+        <summary style="cursor:pointer;font-weight:700">¿Prefieres que te escribamos nosotros? Déjanos tu nombre</summary>
+        <p style="margin-top:12px">Te responderemos por correo con la bienvenida y el enlace para completar el alta.</p>
       <form class="formulario" id="form-socios" novalidate>
         <div class="fila">
           <div class="campo"><label for="s-nombre">Nombre y apellidos</label><input type="text" id="s-nombre" name="nombre" autocomplete="name" required></div>
@@ -651,6 +661,8 @@
         <p class="estado" role="status" aria-live="polite"></p>
         <p class="aviso">Se abrirá tu programa de correo con la solicitud ya escrita para que la envíes desde tu dirección.</p>
       </form>
+      </details>
+      </div>
     </div>
   </section>
 
@@ -702,6 +714,20 @@
       (item.fuente ? '<p class="fuente">Fuente: ' + (item.fuente.url ? '<a href="' + esc(item.fuente.url) + '" target="_blank" rel="noopener">' + esc(item.fuente.nombre) + '</a>' : esc(item.fuente.nombre)) + '</p>' : '') +
       '<div>' + enlaces(item.enlaces) + '</div></article>';
   }
+
+  // Alta de socios: si hay enlace al formulario de Google, es la vía principal;
+  // si no, se muestra abierto el formulario por correo.
+  (function () {
+    var url = window.ENLACE_FORMULARIO_ALTA || '';
+    if (/^https:\/\/(forms\.gle|docs\.google\.com)\//.test(url)) {
+      document.getElementById('enlace-alta').href = url;
+    } else {
+      document.getElementById('alta-directa').style.display = 'none';
+      var d = document.getElementById('alta-correo');
+      d.open = true; d.style.marginTop = '0';
+      d.querySelector('summary').style.display = 'none';
+    }
+  })();
 
   // Redes sociales
   document.querySelectorAll('[data-red]').forEach(function (a) {
@@ -858,14 +884,15 @@
   document.getElementById('form-contacto').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, tipo = f.tipo.value;
-    enviarPorCorreo(f, tipo + ': ' + f.asunto.value.trim(),
+    // «[Web] Tipo:» es la marca que reconoce la automatización del correo (no cambiarla)
+    enviarPorCorreo(f, '[Web] ' + tipo + ': ' + f.asunto.value.trim(),
       'Tipo: ' + tipo + '\nNombre: ' + f.nombre.value.trim() + '\nBarrio: ' + (f.barrio.value || '-') +
       '\n\n' + f.mensaje.value.trim() + '\n\n(Enviado desde la web de Entrevies)');
   });
   document.getElementById('form-socios').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target;
-    enviarPorCorreo(f, 'Quiero hacerme socia/o - ' + f.nombre.value.trim(),
+    enviarPorCorreo(f, '[Web] Alta: Quiero hacerme socia/o - ' + f.nombre.value.trim(),
       'Hola:\n\nQuiero hacerme socia/o de la Asociación Vecinal Entrevies.\n\nNombre: ' + f.nombre.value.trim() +
       '\nTeléfono: ' + (f.telefono.value.trim() || '-') + '\nBarrio: ' + f.barrio.value +
       (f.comentario.value.trim() ? '\n\nComentario: ' + f.comentario.value.trim() : '') + '\n\n(Enviado desde la web de Entrevies)');
