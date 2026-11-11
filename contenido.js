@@ -253,12 +253,24 @@ window.REUNIONES = [
    Si un documento no tiene enlace todavía, sale como «Disponible próximamente».
    ANTES DE SUBIR un PDF, revisa que no tenga DNI, firmas, teléfonos ni direcciones personales. */
 window.DOCUMENTOS = [
-  { grupo: 'Estatutos', grupo_va: 'Estatuts', grupo_en: 'Statutes',
+  /* Revisados el 11-11-2026: sin firmas, DNI, teléfonos ni direcciones particulares.
+     NO publicar la «resolución de inscripción» ni los «estatutos diligenciados»: llevan la dirección
+     particular del domicilio social o son escaneos sin revisar. */
+  { grupo: 'Estatutos', grupo_va: 'Estatuts', grupo_en: 'Statutes', fecha: '2025-03-01',
     titulo: 'Estatutos de la asociación', titulo_va: "Estatuts de l'associació", titulo_en: "The association's statutes",
-    resumen: 'Castellano y valenciano.', resumen_va: 'Valencià i castellà.', resumen_en: 'In Spanish and Valencian.', enlaces: [] },
-  { grupo: 'Registro', grupo_va: 'Registre', grupo_en: 'Registration',
-    titulo: 'Resolución de inscripción en el registro de asociaciones', titulo_va: "Resolució d'inscripció en el registre d'associacions", titulo_en: 'Decision on entry in the register of associations',
-    fecha: '2025-09-09', enlaces: [] },
+    resumen: 'Texto aprobado en la asamblea fundacional del 1 de marzo de 2025. La versión sellada por el registro está a disposición de quien la pida.',
+    resumen_va: "Text aprovat en l'assemblea fundacional de l'1 de març de 2025. La versió segellada pel registre està a disposició de qui la demane.",
+    resumen_en: 'Text approved at the founding meeting on 1 March 2025 (in Spanish and Valencian). The version stamped by the register is available on request.',
+    enlaces: [
+      { texto: 'Castellano', url: 'docs/estatutos_entrevies_es.pdf' },
+      { texto: 'Valencià', url: 'docs/estatutos_entrevies_va.pdf' }
+    ] },
+  { grupo: 'Registro', grupo_va: 'Registre', grupo_en: 'Registration', fecha: '2025-09-09',
+    titulo: 'Certificado de inscripción en el registro de asociaciones', titulo_va: "Certificat d'inscripció en el registre d'associacions", titulo_en: 'Certificate of entry in the register of associations',
+    resumen: 'Registro Autonómico de Asociaciones de la Comunitat Valenciana, número CV-01-067786-V.',
+    resumen_va: "Registre Autonòmic d'Associacions de la Comunitat Valenciana, número CV-01-067786-V.",
+    resumen_en: 'Valencian Regional Register of Associations, number CV-01-067786-V (document in Spanish).',
+    enlaces: [{ texto: 'PDF', url: 'docs/2025-09_certificado_inscripcion_registro.pdf' }] },
   { grupo: 'Organización', grupo_va: 'Organització', grupo_en: 'Organisation',
     titulo: 'Junta directiva', titulo_va: 'Junta directiva', titulo_en: 'Board',
     resumen: 'Cargos de la junta directiva.', resumen_va: 'Càrrecs de la junta directiva.', resumen_en: 'Board positions.', enlaces: [] },
