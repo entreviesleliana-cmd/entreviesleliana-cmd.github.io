@@ -15,7 +15,6 @@
 
 /* ---------- REDES SOCIALES (comprobar que las direcciones son las buenas) ---------- */
 window.REDES = {
-  // facebook: PENDIENTE — facebook.com/entreviesleliana no es pública. Pegar aquí la dirección real de la página:
   // facebook:  'https://www.facebook.com/…',
   instagram: 'https://www.instagram.com/entreviesleliana'
   // TikTok: en noviembre de 2026 la cuenta @entreviesleliana no existía. Cuando la creéis, añadid:
@@ -99,8 +98,7 @@ window.NOTICIAS = [
 ];
 
 /* ---------- PRENSA LOCAL AUTOMÁTICA ----------
-   Titulares que se cargan solos. Añade SOLO fuentes de confianza que publiquen con regularidad.
-   (Vivaleliana NO está aquí: en noviembre de 2026 su canal RSS publicaba spam de casinos.) */
+   Titulares que se cargan solos. Añade SOLO fuentes de confianza que publiquen con regularidad. */
 window.PRENSA_RSS = [
   { nombre: 'InfoTúria', rss: 'https://www.infoturia.com/category/l-eliana/feed', web: 'https://www.infoturia.com/category/l-eliana' }
 ];
